@@ -9,14 +9,28 @@ let person = { name: 'John', age: 20 }
 let arr = [10, 12, 26, 15]
 console.log(arr.find(f, person))
 
-var fs = require('fs')
-//       要写入的文件   要写入的内容       a追加|w写入（默认）|r（读取）  回调函数
-fs.writeFile('11.txt', '我是要写入的11.txt文件的内容', { flag: 'a' }, function(
-  err
-) {
-  if (err) {
-    return console.log(err)
-  } else {
-    console.log('写入成功')
-  }
+// var fs = require('fs')
+// //       要写入的文件   要写入的内容       a追加|w写入（默认）|r（读取）  回调函数
+// fs.writeFile('11.txt', '我是要写入的11.txt文件的内容', { flag: 'a' }, function(
+//   err
+// ) {
+//   if (err) {
+//     return console.log(err)
+//   } else {
+//     console.log('写入成功')
+//   }
+// })
+
+const niming = () => 1 + 1
+const a = niming()
+console.log(a)
+
+let user = {
+  a: '1',
+  b: '2'
+}
+let u = [3, 5]
+u.map((item, index) => {
+  user[index] = item
 })
+console.log(user)
