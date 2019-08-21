@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en" class="has-topbar">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport"
+        content="width=device-width,minimum-scale=1,initial-scale=1,maximum-scale=1,viewport-fit=cover" />
+    <meta http-equiv=" X-UA-Compatible" content="ie=edge" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.bootcss.com/axios/0.19.0/axios.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- 组件库 -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vant@2.0/lib/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vant@2.0/lib/vant.min.js"></script>
+
+    <title>开通VIP</title>
+</head>
+
+<body>
+    <div id="app">
+        <div class="container">
+            <!-- <div class="m-block-top"></div> -->
+            <div class="row">
+                <div class="col-md-12 m-user">
+                    <div class="m-title">开通VIP</div>
+                    <div class="row u-user">
+                        <img :src="baseData.subverterVo.headPortrait" alt="" srcset="" class="u-user-img">
+                        <div class="col">
+                            <div class="row">
+                                <div class="row u-name">
+                                    {{baseData.subverterVo.nickname}}
+                                </div>
+                                <img :src="imgAddress+'icon_vip_card_no.png'" v-if="baseData.subverterVo.vipFlag==0"
+                                    alt="" srcset="" class="u-vip-img">
+                                <img :src="imgAddress+'icon_vip_card.png'" v-else alt="" srcset="" class="u-vip-img">
+                            </div>
+                            <div class="row u-vip-dec">
+                                成为翻转英语会员，学习地道英语
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 m-vip">
+                    <div class="row">
+                        <div class="col-md-12 m-vip-text">
+                            VIP会员套餐
+                        </div>
+                    </div>
+                    <div class="row m-vip-card">
+                        <div class="m-vip-card-item" v-for="(item,index) in baseData.vipCards" :key="index">
+                            <div class="row row-12">
+                                <div class="col-md-12 col-text1">
+                                    {{baseData.vipCards[index].vipCardDisplayName}}
+                                </div>
+                            </div>
+                            <div class="row row-12">
+                                <div class="col-text2">
+                                    <div class="col-sym">￥</div>
+                                    <div class="col-text">{{baseData.vipCards[index].vipCardSellPrice}}</div>
+                                </div>
+                            </div>
+                            <div class="row row-12">
+                                <div class="col-md-12 col-text3">
+                                    <div class="u-col-text3">
+                                        <div class="fenge-line"></div>
+                                        ￥{{baseData.vipCards[index].vipCardOriginalPrice}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="vip-hot" v-if=" baseData.vipCards[index].vipCardDisplayLable!=''">
+                                {{baseData.vipCards[index].vipCardDisplayLable}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 m-android" v-if="platform=='android'">
+                    <div class="row">
+                        <div class="col-md-12 m-android-text">
+                            请选择支付方式
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 m-android-item" @click="chooseZhifu('zhifubao')">
+                            <div class="row m-item-content">
+                                <div class="row m-item-content-left">
+                                    <div class="m-zhifu-img">
+                                        <img :src="imgAddress+'alipay-icon.png'" alt="">
+                                    </div>
+                                    <div class="m-zhifu-text">
+                                        支付宝支付
+                                    </div>
+                                </div>
+                                <div class="m-zhifu-option" v-if="zhifu!='zhifubao'">
+                                </div>
+                                <img class="zhifu-option" :src="imgAddress+'Android_vip_icon_choose_pay.png'" alt=""
+                                    v-if="zhifu=='zhifubao'">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="line"></div>
+                    <div class="row">
+                        <div class="col-md-12 m-android-item" @click="chooseZhifu('weixin')">
+                            <div class="row m-item-content">
+                                <div class="row m-item-content-left">
+                                    <div class="m-zhifu-img">
+                                        <img :src="imgAddress+'weixin-icon.png'" alt="">
+                                    </div>
+                                    <div class="m-zhifu-text">
+                                        微信支付
+                                    </div>
+                                </div>
+                                <div class="m-zhifu-option" v-if="zhifu!='weixin'">
+                                </div>
+                                <img class="zhifu-option" :src="imgAddress+'Android_vip_icon_choose_pay.png'" alt=""
+                                    v-if="zhifu=='weixin'">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="line"></div>
+                </div>
+                <div v-else>
+                    <div class="row m-ios">
+                        <div class="col-md-12 m-ios-text">
+                            服务声明
+                        </div>
+                        <div class="m-ios-dec m-ios-dec1">
+                            <div class="m-fukuan-title">
+                                付款：
+                            </div>
+                            <div class="m-fukuan-text">
+                                用户确认购买并付款后记入iTunes账户。
+                            </div>
+                        </div>
+                        <div class="m-ios-dec">
+                            <div class="m-fukuan-title">
+                                注：
+                            </div>
+                            <div class="m-fukuan-text">
+                                点击购买视为您已阅读并同意<a href="">用户协议</a>、
+                                <a href="">隐私协议</a>、
+                                <a href="">自动续费服务协议</a>、
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 m-tequan">
+                    <div class="row">
+                        <div class="col-md-12 m-tequan-text">
+                            VIP特权
+                        </div>
+                    </div>
+                    <div class="row m-tequan-card">
+                        <div class="col m-tequan-card-item">
+                            <div class="col">
+                                <img class="m-tequan-card-item-img" :src="imgAddress+'vip_privilege_01.png'" alt=""
+                                    srcset="">
+                            </div>
+                            <div class="col m-tequan-card-item-text">
+                                <div class="row">
+                                    海量课程
+                                </div>
+                                <div class="row u-tequan-card-item-text">
+                                    随意学
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col m-tequan-card-item">
+                            <div class="col">
+                                <img class="m-tequan-card-item-img" :src="imgAddress+'vip_privilege_02.png'" alt=""
+                                    srcset="">
+                            </div>
+                            <div class="col m-tequan-card-item-text">
+                                <div class="row">
+                                    AI智能
+                                </div>
+                                <div class="row u-tequan-card-item-text">
+                                    跟读打分
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col m-tequan-card-item">
+                            <div class="col">
+                                <img class="m-tequan-card-item-img" :src="imgAddress+'vip_privilege_03.png'" alt=""
+                                    srcset="">
+                            </div>
+                            <div class="col m-tequan-card-item-text">
+                                <div class="row">
+                                    名师辅导
+                                </div>
+                                <div class="row u-tequan-card-item-text">
+                                    语音讲解
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col m-tequan-card-item">
+                            <div class="col">
+                                <img class="m-tequan-card-item-img" :src="imgAddress+'vip_privilege_04.png'" alt=""
+                                    srcset="">
+                            </div>
+                            <div class="col m-tequan-card-item-text">
+                                <div class="row">
+                                    更多功能
+                                </div>
+                                <div class="row u-tequan-card-item-text">
+                                    优先体验
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col-md-12 m-button">
+                    <button @click="handleSubmit">立即开通</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    //注册
+    function setupWebViewJavascriptBridge(callback) {
+        if (window.WebViewJavascriptBridge) { return callback(WebViewJavascriptBridge); }
+        if (window.WVJBCallbacks) { return window.WVJBCallbacks.push(callback); }
+        window.WVJBCallbacks = [callback]; // 创建一个 WVJBCallbacks 全局属性数组，并将 callback 插入到数组中。
+        var WVJBIframe = document.createElement('iframe'); // 创建一个 iframe 元素
+        WVJBIframe.style.display = 'none'; // 不显示
+        WVJBIframe.src = 'wvjbscheme://__BRIDGE_LOADED__'; // 设置 iframe 的 src 属性
+        document.documentElement.appendChild(WVJBIframe); // 把 iframe 添加到当前文导航上。
+        setTimeout(function () { document.documentElement.removeChild(WVJBIframe) }, 0)
+    }
+
+    setupWebViewJavascriptBridge(function (bridge) {
+        bridge.registerHandler('JS Echo', function (data, responseCallback) {
+            console.log("JS Echo called with:", data)
+            responseCallback(data)
+        })
+        bridge.callHandler('ObjC Echo', { 'key': 'value' }, function responseCallback(responseData) {
+            console.log("JS received response:", responseData)
+        })
+    });
+
+    // 获取url中的参数
+    function getUrlParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+        if (r != null) return unescape(r[2]); return null; //返回参数值
+    }
+    var app = new Vue({
+        el: '#app',
+        data: {
+            imgAddress: 'https://image.binfenyingyu.com/flipped/vip/',
+            baseData: {
+                subverterVo: {
+                    nickname: '15702128656',
+                    headPortrait: '',
+                    vipDeadline: 1560420721000,
+                    vipFlag: 0,
+                    userNo: '88888888'
+                },
+                vipCards: [
+                    {
+                        vipCardOriginalPrice: 69,
+                        vipCardDisplayLable: '平均每天1.3元',
+                        vipCardDisplayName: '1个月',
+                        vipCardNo: 'com.binfenyingyu.flipped.vip30',
+                        vipCardSellPrice: 40
+                    },
+                    {
+                        vipCardOriginalPrice: 399,
+                        vipCardDisplayLable: '',
+                        vipCardDisplayName: '6个月',
+                        vipCardNo: 'com.binfenyingyu.flipped.vip183',
+                        vipCardSellPrice: 148
+                    },
+                    {
+                        vipCardOriginalPrice: 799,
+                        vipCardDisplayLable: '',
+                        vipCardDisplayName: '12个月',
+                        vipCardNo: 'com.binfenyingyu.flipped.vip365',
+                        vipCardSellPrice: 218
+                    }
+                ]
+            },
+            zhifu: '',
+            platform: 'android'
+        },
+        created() {
+            // let params = getUrlParam('workNo')
+            this.$nextTick(() => {
+                // this.handleQuery(params);
+            })
+        },
+        computed: {
+        },
+        methods: {
+            handleQuery(params) {
+                const that = this
+                axios({
+                    method: 'post',
+                    url: 'https://dub.binfenyingyu.com/vipCard/list',
+                    data: {
+                        params,
+                    },
+                    headers: { 'build': '0' }
+                }).then(function (response) {
+                    console.log(response);
+
+                    if (!response.data.datas) {
+                        vant.Toast('');
+                    } else {
+                        this.baseData = response.data.datas
+                    }
+                })
+                    .catch(function (error) {
+                        vant.Toast('');
+                    })
+            },
+            chooseZhifu(zhifu) {
+                console.log("===", zhifu);
+
+                this.zhifu = zhifu
+            },
+            handleSubmit() {
+
+            }
+        }
+    })
+</script>
+<style>
+    /* @media  { */
+
+    /*增加头部适配层*/
+    /* .has-topbar {
+        height: 100%;
+        box-sizing: border-box;
+        padding-top: 44px;
+    }
+
+    .has-topbar:before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 44px;
+        background-color: #000000;
+        z-index: 9998;
+    } */
+
+    /* } */
+
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        background: #FFFFFF;
+        font-family: Helvetica, 'PingFangSC-Regular';
+    }
+
+    html {
+        font-size: 16px;
+    }
+
+    a,
+    select,
+    span,
+    i,
+    input,
+    button {
+        outline: none;
+        border: 0px;
+        line-height: normal;
+        background: none;
+    }
+
+    body {
+        -webkit-text-size-adjust: none;
+    }
+
+    div {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    #app {
+        width: 100%;
+        height: 100%;
+    }
+
+    .container {
+        width: 100%;
+        height: 100%;
+        padding: constant(safe-area-inset-top) constant(safe-area-inset-right) constant(safe-area-inset-bottom) constant(safe-area-inset-left);
+        padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+    }
+
+    .m-block-top {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 400px;
+        width: 100%;
+        background: #4F493C;
+        z-index: -1;
+    }
+
+    .m-title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 16px;
+        font-size: 18px;
+        font-family: PingFangSC-Medium;
+        font-weight: 500;
+        color: rgba(255, 250, 239, 1);
+    }
+
+    .row {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .col {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .col-md-12 {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .col-md-6 {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+    }
+
+    .col-md-4 {
+        display: flex;
+        flex-direction: column;
+        width: 33.33%;
+    }
+
+    .col-md-3 {
+        display: flex;
+        flex-direction: column;
+        width: 25%;
+    }
+
+    .m-user {
+        background: linear-gradient(360deg, rgba(53, 50, 36, 1) 0%, rgba(79, 73, 60, 1) 100%);
+    }
+
+    .u-user {
+        align-items: center;
+        margin: 27px 22px 0;
+        height: 120px;
+        background: url('https://image.binfenyingyu.com/flipped/vip/img_vip_card.png');
+        background-size: 100% 130px;
+        background-repeat: no-repeat;
+        border-radius: 11px 11px 0 0;
+    }
+
+    .u-user-img {
+        margin: 0 3.5% 0 5%;
+        width: 55px;
+        height: 56px;
+        border-radius: 50%;
+    }
+
+    .u-vip-img {
+        width: 35px;
+        height: 21px;
+        margin-left: 14px;
+    }
+
+    .u-name {
+        font-size: 1rem;
+        line-height: 20px;
+        font-family: PingFangSC-Medium;
+        font-weight: 500;
+    }
+
+    .u-vip-dec {
+        font-size: 0.75rem;
+        font-weight: 400;
+        color: rgba(102, 102, 102, 1);
+        line-height: 13px;
+        margin-top: 15px;
+    }
+
+    .m-vip {
+        margin: 22px 17px 22px;
+    }
+
+    .m-vip-text {
+        font-size: 1rem;
+        font-family: PingFangSC-Medium;
+        font-weight: 500;
+        color: rgba(96, 75, 28, 1);
+    }
+
+    .m-vip-card {
+        height: 137px;
+        margin-top: 19px;
+        justify-content: space-between;
+    }
+
+    .m-vip-card-item {
+        width: 28%;
+        border-radius: 10px;
+        border: 1px solid rgba(231, 203, 141, 1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        position: relative;
+    }
+
+    .vip-hot {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 22px;
+        background: url('https://image.binfenyingyu.com/flipped/vip/vip_halfyear_hot copy.png');
+        background-size: 100% 22px;
+        background-repeat: no-repeat;
+
+        font-size: 0.63rem;
+        font-family: PingFangSC-Regular;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 1);
+        line-height: 22px;
+        padding: 0 7px 0 4px;
+    }
+
+    .m-vip-card-item .row-12 {
+        width: 100%;
+    }
+
+    .m-vip-card-item .col-text1 {
+        font-size: 1rem;
+        font-family: PingFangSC-Medium;
+        font-weight: 500;
+        color: rgba(96, 75, 28, 1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .m-vip-card-item .col-text2 {
+        display: flex;
+        margin: 0px 0px 9px;
+        justify-content: center;
+        align-items: flex;
+        width: 100%;
+        height: 36px;
+    }
+
+    .col-sym {
+        align-self: flex-end;
+        font-size: 0.88rem;
+        font-family: PingFangSC-Regular;
+        font-weight: 400;
+        color: rgba(215, 177, 94, 1);
+        margin-right: 1px;
+    }
+
+    .col-text {
+        align-self: flex-end;
+        font-size: 1.88rem;
+        font-family: DINAlternate-Bold;
+        font-weight: bold;
+        color: rgba(215, 177, 94, 1);
+        line-height: 27px;
+    }
+
+    .m-vip-card-item .col-text3 {
+        font-size: 0.75rem;
+        font-family: PingFangSC-Regular;
+        font-weight: 400;
+        color: rgba(153, 153, 153, 1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .u-col-text3 {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .fenge-line {
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        background-color: rgba(153, 153, 153, 1);
+    }
+
+    .m-android {
+        margin: 0 17px;
+    }
+
+    .m-ios {
+        margin: 0 17px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .m-ios-text {
+        font-size: 0.88rem;
+        font-family: PingFangSC-Medium;
+        font-weight: 500;
+        color: rgba(96, 75, 28, 1);
+    }
+
+    .m-ios-dec {
+        display: flex;
+    }
+
+    .m-ios-dec1 {
+        margin: 17px 0 11px 0;
+    }
+
+    .m-fukuan-title {
+        font-size: 0.69rem;
+        font-family: PingFangSC-Medium;
+        font-weight: 500;
+        color: rgba(96, 75, 28, 1);
+    }
+
+    .m-fukuan-text {
+        font-size: 0.69rem;
+        font-family: PingFangSC-Regular;
+        font-weight: 400;
+        color: rgba(96, 75, 28, 1);
+    }
+
+    .m-fukuan-text a {
+        text-decoration: underline;
+    }
+
+    .m-android-text {
+        font-size: 1rem;
+        font-family: PingFangSC-Medium;
+        font-weight: 500;
+    }
+
+    .m-android-item {
+        height: 33px;
+        margin: 22px 5px 22px 0;
+
+    }
+
+    .m-item-content {
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .zhifu-option {
+        width: 24px;
+        height: 24px;
+    }
+
+    .m-item-content-left {
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .m-zhifu-text {
+        margin-left: 17px;
+        font-size: 16px;
+        font-family: PingFangSC-Regular;
+        font-weight: 400;
+    }
+
+    .m-zhifu-img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .m-zhifu-img img {
+        width: 33px;
+        height: 33px;
+    }
+
+
+    .m-zhifu-option {
+        width: 24px;
+        height: 24px;
+        border: 1px solid rgba(200, 200, 200, 1);
+        border-radius: 50%;
+    }
+
+    .line {
+        width: 100%;
+        height: 1px;
+        background-color: #F0F0F0;
+    }
+
+    .m-tequan {
+        margin: 28px 17px 110px;
+    }
+
+    .m-tequan-text {
+        font-size: 16px;
+        font-family: PingFangSC-Medium;
+        font-weight: 500;
+        color: rgba(96, 75, 28, 1);
+    }
+
+    .m-tequan-card {
+        /* width: 55px; */
+        margin-top: 28px;
+        justify-content: space-between;
+    }
+
+    .m-tequan-card-item {
+        align-items: center;
+        width: 63px;
+    }
+
+    .m-tequan-card-item-img {
+        width: 55px;
+        height: 55px;
+        margin-bottom: 11px;
+    }
+
+    .m-tequan-card-item-text {
+        align-items: center;
+        font-size: 0.75rem;
+        font-family: PingFangSC-Regular;
+        font-weight: 400;
+        color: rgba(96, 75, 28, 1);
+    }
+
+    .u-tequan-card-item-text {
+        margin-top: 5px;
+    }
+
+    .m-button {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        height: 77px;
+        width: 100%;
+        background: rgba(255, 255, 255, 1);
+        box-shadow: 0px -1px 4px 0px rgba(240, 240, 240, 1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .m-button button {
+        width: 92%;
+        height: 51px;
+        background-color: #E7CB8D;
+        border-radius: 6px;
+        font-size: 1rem;
+        font-family: PingFangSC-Medium;
+        font-weight: 500;
+        color: rgba(96, 75, 28, 1);
+    }
+</style>
+
+</html>
