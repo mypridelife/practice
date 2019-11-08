@@ -48,10 +48,10 @@ var myServer = http.createServer(function(req, res) {
 
 //服务端等着客户端请求需要做一个监听。通过创建的服务。
 //监听
-myServer.listen('4396', function(err) {
+myServer.listen('7777', function(err) {
   if (err) {
     console.log(err)
     throw err
   }
-  console.log('服务器已开启。端口号为:4396')
+  console.log('服务器已开启。端口号为:7777')
 })
