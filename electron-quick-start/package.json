@@ -4,7 +4,9 @@
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "debugger": "electron . --inspect=5858 your/app",
+    "build": "electron-packager . demo --win --out ./build --platform=win32 --arch=x64 --overwrite --ignore=node_module --icon=./favicon.ico"
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
@@ -17,6 +19,9 @@
   "author": "GitHub",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^7.1.4"
+    "electron": "^7.1.5"
+  },
+  "dependencies": {
+    "electron-packager": "^14.1.1"
   }
 }

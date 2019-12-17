@@ -1,56 +1,68 @@
-const fs = require('fs')
+const fs = require("fs");
 
 const getClippings = value => {
   //最终得到的数组
-  const clippingArr = []
+  const clippingArr = [];
 
   /**
    * 解析文件
    */
-  const buffer = fs.readFileSync(value)
-  const text = String(buffer)
+  const buffer = fs.readFileSync(value);
+  const text = String(buffer);
 
   //获取到每一条剪报的数组
-  const pattC = /==========/
-  const textArr = text.split(pattC)
+  const pattC = /==========/;
+  const textArr = text.split(pattC);
 
   /**
    * 正则规则
    */
   //获取页码位置location
-  const pattL = /您在位置 #(\S*)的(标注|笔记)/
+  const pattL = /您在位置 #(\S*)的(标注|笔记)/;
   //获取bookName
   //   const pattN = /- 您在位置/
   //获取作者
-  const pattA = /\s\((.*)\)\s/
-  //获取添加时间
-  const pattT = /添加于.*/
+  const pattA = /\s\((.*)\)\s/;
+  //   //获取添加时间
+  //   const pattT = /添加于.*/;
   //获取内容
-  const pattContent = /添加于.*/
+  const pattContent = /添加于.*/;
 
   //   获取最终的数组
   for (let index = 0; index < textArr.length; index++) {
-    const item = textArr[index]
+    const item = textArr[index];
 
-    const hasLocation = item.match(pattL)
+    const hasLocation = item.match(pattL);
 
     if (hasLocation) {
-      const location = hasLocation[1]
-      location && location.trim()
+      let location = hasLocation[1];
+      location && location.trim();
+      if (location) {
+        location = location.replace(/[\r\n]/g, "");
+      }
 
-      const bookName = textArr[0].split(pattA)[0]
-      bookName && bookName.trim()
+      let bookName = item.split(pattA)[0];
+      bookName && bookName.trim();
+      if (bookName) {
+        bookName = bookName.replace(/[\r\n]/g, "");
+      }
 
-      const author = textArr[0].match(pattA)[1]
-      author && author.trim()
+      let author = item.match(pattA)[1];
+      author && author.trim();
+      if (author) {
+        author = author.replace(/[\r\n]/g, "");
+      }
 
-      const addTime = item.match(pattT)[0]
-      addTime && addTime.trim()
+      let addTime = item.match(pattContent)[0];
+      addTime && addTime.trim();
+      if (addTime) {
+        addTime = addTime.replace(/[\r\n]/g, "");
+      }
 
-      let content = item.split(pattContent)[1]
-      content && content.trim()
+      let content = item.split(pattContent)[1];
+      content && content.trim();
       if (content) {
-        content = content.replace(/\\r\\n/g, '')
+        content = content.replace(/[\r\n]/g, "");
       }
 
       const data = {
@@ -59,14 +71,14 @@ const getClippings = value => {
         location,
         addTime,
         content
-      }
-      clippingArr.push(data)
+      };
+      clippingArr.push(data);
     } else {
-      continue
+      continue;
     }
   }
-  console.log(clippingArr)
-  return clippingArr
-}
+  console.log(clippingArr);
+  return clippingArr;
+};
 
-getClippings('http://127.0.0.1:8000/assets/uploads/1_1573182777277.txt')
+getClippings("./1.txt");
