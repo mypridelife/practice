@@ -1,19 +1,32 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <title>Hello World!</title>
+    <meta charset="UTF-8" />
+    <title>Move Finished Film</title>
+    <script src="./static/vue.js"></script>
   </head>
   <body>
-    <h1>Hello World!</h1>
-    We are using Node.js <span id="node-version"></span>,
-    Chromium <span id="chrome-version"></span>,
-    and Electron <span id="electron-version"></span>.
-
-    <!-- You can also require other files to run in this process -->
     <script src="./renderer.js"></script>
+    <div id="app">
+      <div>
+        {{name}}
+      </div>
+    </div>
   </body>
+  <script>
+    var app = new Vue({
+      el: "#app",
+      data: {
+        name: "ggg"
+      },
+      created() {
+        let myNotification = new Notification("标题", {
+          body: "通知正文内容"
+        });
+        myNotification.onclick = () => {
+          console.log("通知被点击");
+        };
+      }
+    });
+  </script>
 </html>
