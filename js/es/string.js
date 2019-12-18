@@ -10,18 +10,76 @@ var str1 = "Hello ";
 var str2 = "world!";
 var n = str1.concat(str2);
 
-var gyh = new String("string");
-String.prototype.xxx = null;
-gyh.xxx = function() {
-  console.log("xxx");
-};
-gyh.xxx();
+/**
+ * indexOf() 方法indexOf() 方法可返回某个指定的字符串值在字符串中首次出现的位置。
+ * 如果没有找到匹配的字符串则返回 -1。indexOf() 方法区分大小写。
+ */
+var str = "Hello world, welcome to the universe.";
+var n = str.indexOf("welcome");
+/**
+ * includes() 方法
+ * includes() 方法用于判断字符串是否包含指定的子字符串。如果找到匹配的字符串则返回 true，否则返回 false。
+ */
+// string.includes(searchvalue, start)
+var str = "Hello world, welcome to the Runoob。";
+var n = str.includes("world");
+/**
+ * lastIndexOf() 方法
+ * lastIndexOf() 方法可返回一个指定的字符串值最后出现的位置，如果指定第二个参数 start，则在一个字符串中的指定位置从后向前搜索。
+ * 注意： 该方法将从后向前检索字符串，但返回是从起始位置 (0) 开始计算子字符串最后出现的位置。 看它是否含有字符串
+ */
+// string.lastIndexOf(searchvalue, start)
+var str = "I am from runoob，welcome to runoob site.";
+var n = str.lastIndexOf("runoob");
+/**
+ * match() 方法
+ */
+var str = "The rain in SPAIN stays mainly in the plain";
+var n = str.match(/ain/g);
+/**
+ * replace() 方法
+ * 该方法不会改变原始字符串。
+ */
+// string.replace(searchvalue, newvalue)
+/**
+ * search() 方法
+ * 如果没有找到任何匹配的子串，则返回 -1。
+ */
+// string.search(searchvalue)
+/**
+ * search() 方法
+ * slice(start, end) 方法可提取字符串的某个部分，并以新的字符串返回被提取的部分。
+ */
+// string.slice(start,end)
+/**
+ * split() 方法
+ * split() 方法用于把一个字符串分割成字符串数组
+ */
+// string.split(separator,limit)
+/**
+ * slice() 方法
+ * substring() 方法
+ * substr() 方法
+ */
+// string.slice(start,end)
+// string.substr(start, length)
+// string.substring(from, to)
+/**
+ * trim() 方法
+ * 去除字符串的头尾空格:
+ */
+// trim() 方法不会改变原始字符串。
+var str = "       Runoob        ";
+alert(str.trim());
+
+
+
 
 //es6新增
 
 /**
  * 字符串查询
- *上面代码表示，使用第二个参数n时，endsWith的行为与其他两个方法有所不同。它针对前n个字符，而其他两个方法针对从第n个位置直到字符串结束。
+ * 上面代码表示，使用第二个参数n时，endsWith的行为与其他两个方法有所不同。它针对前n个字符，而其他两个方法针对从第n个位置直到字符串结束。
  */
 let s = "Hello world!";
 
