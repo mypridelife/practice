@@ -1,8 +1,8 @@
 const fs = require("fs");
 
-const parseTime = require("./parseTime.js.js.js.js")
-const isFilm = require("./isFilm.js.js.js.js")
-const getFileSize = require("./getFileSize.js.js.js.js")
+const parseTime = require("./parseTime")
+const isFilm = require("./isFilm")
+const getFileSize = require("./getFileSize")
 
 /**
  * 一些常量
