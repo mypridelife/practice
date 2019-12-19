@@ -1,45 +1,35 @@
-//展开符
-const x = [1, 2, 3, 4, 5, 5, 4];
-console.log(...x);
-//reduce,求和
-const sumReduce = x.reduce((total, num) => total + num, 0);
-console.log(sumReduce);
-//map，过滤
-const mapString = x.map(number => `A String containing the ${number}`);
-console.log(mapString);
-const mapString2 = x.map(String);
-console.log(mapString2);
+//array
+// https://www.runoob.com/jsref/jsref-obj-array.html
 
-//split
-const name = "gyh";
-console.log(name.split(""));
-//join
-console.log(name.split("").join(""));
-//reverse
-console.log(name.split("").reverse());
-console.log(
-  name
-    .split("")
-    .reverse()
-    .join("")
-);
+/**
+ * concat() 方法
+ * 该方法不会改变现有的数组
+ * array1.concat(array2,array3,...,arrayX)
+ */
+var hege = ["Cecilie", "Lone"];
+var stale = ["Emil", "Tobias", "Linus"];
+var kai = ["Robin"];
+var children = hege.concat(stale, kai);
 
-// Set 去除数组的重复成员
-const array2 = [...new Set(x)];
-console.log("Set 去除数组的重复成员", array2, "x", x);
+/**
+ * entries() 方法
+ * entries() 方法返回一个数组的迭代对象
+ * 迭代对象中数组的索引值作为 key， 数组元素作为 value。
+ */
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
 
-//Set 去除字符串里面的重复字符
-console.log([...new Set("ababbc")].join(""));
-// "abc"
-
-//Array.from方法可以将 Set 结构转为数组。
-const items = new Set([1, 2, 3, 4, 5]);
-const array = Array.from(items);
-//这就提供了去除数组重复成员的另一种方法。
-
-function dedupe(array) {
-  return Array.from(new Set(array));
+for (const [key, value] of fruits.entries()) {
+  console.log(`${key} ${value}`); // "a 5", "b 7", "c 9"
+}
+////////////////////////////////////////////////////////////////////////
+// iterate through key-value gracefully
+const obj = { a: 5, b: 7, c: 9 };
+for (const [key, value] of Object.entries(obj)) {
+  console.log(`${key} ${value}`); // "a 5", "b 7", "c 9"
 }
 
-console.log(dedupe([1, 1, 2, 3]));
-// [1, 2, 3]
+// Or, using array extras
+Object.entries(obj).forEach(([key, value]) => {
+  console.log(`${key} ${value}`); // "a 5", "b 7", "c 9"
+});
+////////////////////////////////////////////////////////////////////////

@@ -1,6 +1,9 @@
 // String
 // https://www.runoob.com/jsref/jsref-obj-string.html
 
+var arr = [1, 2, 3, 4, 5, 5, 6, 7, 1];
+console.log(arr.indexOf(5)); //4 下标为4的位置
+console.log(arr.lastIndexOf(5)); //5
 //常用
 /**
  * concat() 方法用于连接两个或多个字符串。
@@ -17,13 +20,6 @@ var n = str1.concat(str2);
 var str = "Hello world, welcome to the universe.";
 var n = str.indexOf("welcome");
 /**
- * includes() 方法
- * includes() 方法用于判断字符串是否包含指定的子字符串。如果找到匹配的字符串则返回 true，否则返回 false。
- */
-// string.includes(searchvalue, start)
-var str = "Hello world, welcome to the Runoob。";
-var n = str.includes("world");
-/**
  * lastIndexOf() 方法
  * lastIndexOf() 方法可返回一个指定的字符串值最后出现的位置，如果指定第二个参数 start，则在一个字符串中的指定位置从后向前搜索。
  * 注意： 该方法将从后向前检索字符串，但返回是从起始位置 (0) 开始计算子字符串最后出现的位置。 看它是否含有字符串
@@ -31,6 +27,13 @@ var n = str.includes("world");
 // string.lastIndexOf(searchvalue, start)
 var str = "I am from runoob，welcome to runoob site.";
 var n = str.lastIndexOf("runoob");
+/**
+ * includes() 方法
+ * includes() 方法用于判断字符串是否包含指定的子字符串。如果找到匹配的字符串则返回 true，否则返回 false。
+ */
+// string.includes(searchvalue, start)
+var str = "Hello world, welcome to the Runoob。";
+var n = str.includes("world");
 /**
  * match() 方法
  */
@@ -70,10 +73,7 @@ var n = str.match(/ain/g);
  */
 // trim() 方法不会改变原始字符串。
 var str = "       Runoob        ";
-alert(str.trim());
-
-
-
+// alert(str.trim());
 
 //es6新增
 
