@@ -21,13 +21,24 @@ print ("dict['Name']: ", dict['Name'])
 print ("dict['Age']: ", dict['Age'])
 
 
-import time;  # 引入time模块
+import time  # 引入time模块
  
 ticks = time.time()
 print ("当前时间戳为:", ticks)
 
-name=input()
-print("hello,%s" % name)
+# name=input()
+# print("hello,%s" % name)
+
+try:
+    fh = open("testfile", "w")
+    fh.write("aaa")
+except:
+    print ("Error: 没有找到文件或读取文件失败")
+else:
+    print ("内容写入文件成功")
+    fh.close()
+finally:
+    print("hh")
 
 '''
 标准数据类型
