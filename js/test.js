@@ -1,6 +1,6 @@
 // let i = 777;
-if (this.$route.query.payType === 777) {
-  console.log("===");
-} else {
-  console.log("---");
+console.log(foo); // function foo
+var foo = 20;
+function foo() {
+  console.log('function foo');
 }

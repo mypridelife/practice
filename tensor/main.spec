@@ -3,7 +3,7 @@
 block_cipher = None
 
 
-a = Analysis(['wxpython.py'],
+a = Analysis(['main.py'],
              pathex=['/Users/yhg/mac/workspace/github/practice/tensor'],
              binaries=[],
              datas=[],
@@ -23,7 +23,7 @@ exe = EXE(pyz,
           a.zipfiles,
           a.datas,
           [],
-          name='wxpython',
+          name='main',
           debug=False,
           bootloader_ignore_signals=False,
           strip=False,
@@ -32,6 +32,6 @@ exe = EXE(pyz,
           runtime_tmpdir=None,
           console=False )
 app = BUNDLE(exe,
-             name='wxpython.app',
+             name='main.app',
              icon=None,
              bundle_identifier=None)

@@ -43,34 +43,44 @@
 //   };
 // }
 
-for (var i = 0; i < 5; i++) {
-  (function(i) {
-    setTimeout(function() {
-      console.log(i);
-    }, i * 1000);
-  })(i);
-}
-// var Counter = (function() {
+// for (var i = 0; i < 5; i++) {
+//   (function(i) {
+//     setTimeout(function() {
+//       console.log(i);
+//     }, i * 1000);
+//   })(i);
+// }
+// for (var i = 1; i <= 5; i++) {
+//     setTimeout((
+//         function (i) {
+//             return function () {
+//                 console.log(i);
+//             }
+//         }
+//     )(i), i * 1000);
+// }
+
+// var Counter = (function () {
 //     var privateCounter = 0;
 //     function changeBy(val) {
-//       privateCounter += val;
+//         privateCounter += val;
 //     }
 //     return {
-//       increment: function() {
-//         changeBy(1);
-//       },
-//       decrement: function() {
-//         changeBy(-1);
-//       },
-//       value: function() {
-//         return privateCounter;
-//       }
+//         increment: function () {
+//             changeBy(1);
+//         },
+//         decrement: function () {
+//             changeBy(-1);
+//         },
+//         value: function () {
+//             return privateCounter;
+//         }
 //     }
-//   })();
+// })();
 
-//   console.log(Counter.value()); /* logs 0 */
-//   Counter.increment();
-//   Counter.increment();
-//   console.log(Counter.value()); /* logs 2 */
-//   Counter.decrement();
-//   console.log(Counter.value()); /* logs 1 */
+// console.log(Counter.value()); /* logs 0 */
+// Counter.increment();
+// Counter.increment();
+// console.log(Counter.value()); /* logs 2 */
+// Counter.decrement();
+// console.log(Counter.value()); /* logs 1 */
