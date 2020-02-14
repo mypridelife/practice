@@ -13,18 +13,7 @@
 </template>
 
 <script>
-export default {
-  components: {},
-  props: {},
-  data() {
-    return {}
-  },
-  computed: {},
-  watch: {},
-  created() {},
-  mounted() {},
-  methods: {}
-}
+export default {}
 </script>
 
 <style scoped lang="scss" type="text/css"></style>

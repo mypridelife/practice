@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>animation_demo</title>
+    <script src="../vue.js"></script>
+    <!--
+Velocity 和 jQuery.animate 的工作方式类似，也是用来实现 JavaScript 动画的一个很棒的选择
+-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <!-- 过渡 -->
+      <div id="example-1">
+        <button @click="showTransition = !showTransition">
+          Toggle showTransition
+        </button>
+        <transition name="slide-fade">
+          <p v-if="showTransition">hello</p>
+        </transition>
+      </div>
+      <!-- 动画 -->
+      <div id="example-2">
+        <button @click="showAnimation = !showAnimation">
+          Toggle showAnimation
+        </button>
+        <transition name="bounce">
+          <p v-if="showAnimation">
+            {{text}}
+          </p>
+        </transition>
+      </div>
+      <!-- javaScript 钩子 -->
+      <div id="example-4">
+        <button @click="showJavascript = !showJavascript">
+          Toggle
+        </button>
+        <transition
+          v-on:before-enter="beforeEnter"
+          v-on:enter="enter"
+          v-on:leave="leave"
+          v-bind:css="false"
+        >
+          <p v-if="showJavascript">
+            Demo
+          </p>
+        </transition>
+      </div>
+    </div>
+
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          text: `
+            属性: transition
+            transition-property: 动画展示哪些属性，可以使用all关键字；
+            transition--duration: 动画过程有多久；
+            transition-timing-function:linear,ease,ease-in,ease-out,ease-in-out，贝塞尔曲线等:控制动画速度变化；
+            transition-delay: 动画是否延迟执行；
+            一般来说，将transition属性应用到最初的样式里，而不是放在结束的样式里，
+            即定义动画开始之前的元素外观的样式。
+            只需要给元素设置一次transition，浏览器就会负责以动画展示从一个样式到另一个样式，再返回最初样式的变化过程。
+            1. 需要一个事件来触发，比如hover，所以没法在网页加载时自动触发。
+            2.是一次性的，不能重复发生，除非一再触发。
+            3.只能定义开始状态和结束状态，不能定义中间状态，也就是说只有两个状态。
+            4.一条transition规则，只能定义一个属性的变化，不能涉及多个属性。
+            属性:animation
+            animation-name: keyframes中定义的动画名称；
+            animation-duration:动画执行一次持续的时长；
+            animation-timing-function:动画速率变化函数；
+            animation-delay:动画延迟执行的时间；
+            animation-iteration-count:动画执行的次数，可以是数字，或者关键字（infinite）;
+            animation-direction:alternate(奇数次超前运行，偶数次后退运行)。
+            animation-fill-mode:告诉浏览器将元素的格式保持为动画结束时候的样子/或没开始。
+            animation-paly-state:paused|running;
+            `,
+          showTransition: true,
+          showAnimation: true,
+          showJavascript: false
+        },
+        methods: {
+          beforeEnter: function(el) {
+            el.style.opacity = 0
+            el.style.transformOrigin = 'left'
+          },
+          enter: function(el, done) {
+            Velocity(el, { opacity: 1, fontSize: '1.4em' }, { duration: 300 })
+            Velocity(el, { fontSize: '1em' }, { complete: done })
+          },
+          leave: function(el, done) {
+            Velocity(
+              el,
+              { translateX: '15px', rotateZ: '50deg' },
+              { duration: 600 }
+            )
+            Velocity(el, { rotateZ: '100deg' }, { loop: 2 })
+            Velocity(
+              el,
+              {
+                rotateZ: '90deg',
+                translateY: '30px',
+                translateX: '30px',
+                opacity: 0
+              },
+              { complete: done }
+            )
+          }
+        }
+      })
+    </script>
+    <style>
+      /* 过渡 */
+      /* 可以设置不同的进入和离开动画 */
+      /* 设置持续时间和动画函数 */
+      .slide-fade-enter-active {
+        transition: all 0.3s ease;
+      }
+      .slide-fade-leave-active {
+        transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+      }
+      .slide-fade-enter,
+      .slide-fade-leave-to {
+        transform: translateX(10px);
+        opacity: 0;
+      }
+
+      /* 动画 */
+      .bounce-enter-active {
+        animation: bounce-in 0.5s;
+      }
+      .bounce-leave-active {
+        animation: bounce-in 0.5s reverse;
+      }
+      @keyframes bounce-in {
+        0% {
+          transform: scale(0);
+        }
+        50% {
+          transform: scale(1.5);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+    </style>
+  </body>
+</html>
