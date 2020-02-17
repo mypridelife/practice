@@ -48,6 +48,32 @@ Velocity 和 jQuery.animate 的工作方式类似，也是用来实现 JavaScrip
           </p>
         </transition>
       </div>
+      <!-- slide效果 -->
+      <div>
+        <button v-on:click="showSlide = !showSlide">
+          slideToggle
+        </button>
+        <transition name="ul">
+          <ul v-if="showSlide" class="ul-box">
+            <li>11111111111111</li>
+            <li>11111111111111</li>
+            <li>11111111111111</li>
+            <li>11111111111111</li>
+            <li>11111111111111</li>
+            <li>11111111111111</li>
+            <li>11111111111111</li>
+            <li>11111111111111</li>
+            <li>11111111111111</li>
+            <li>11111111111111</li>
+          </ul>
+        </transition>
+      </div>
+      <!-- 垂直移动 -->
+      <div class="m-move-box">
+        <div @click="move=!move" :class="['u-move-box',move?'u-move-end':'']">
+          {{move?"向下移动":"向上移动"}}
+        </div>
+      </div>
     </div>
 
     <script>
@@ -79,7 +105,9 @@ Velocity 和 jQuery.animate 的工作方式类似，也是用来实现 JavaScrip
             `,
           showTransition: true,
           showAnimation: true,
-          showJavascript: false
+          showJavascript: false,
+          showSlide: false,
+          move: false
         },
         methods: {
           beforeEnter: function(el) {
@@ -144,6 +172,42 @@ Velocity 和 jQuery.animate 的工作方式类似，也是用来实现 JavaScrip
         100% {
           transform: scale(1);
         }
+      }
+      /* slide效果 */
+      .ul-box {
+        height: 300px;
+        overflow: hidden;
+      }
+      .ul-enter-active,
+      .ul-leave-active {
+        transition: all 0.5s;
+      }
+      .ul-enter,
+      .ul-leave-to {
+        height: 0;
+      }
+      /* 垂直移动 */
+      .m-move-box {
+        position: relative;
+        height: 300px;
+        width: 300px;
+        background-color: brown;
+      }
+      .u-move-box {
+        height: 40px;
+        width: 40px;
+        background-color: yellowgreen;
+        position: absolute;
+        bottom: 10px;
+        left: 130px;
+
+        transition: all 1s ease;
+      }
+      .u-move-end {
+        position: absolute;
+        bottom: 200px;
+        left: 20px;
+        /* transform: translateY(-100px); */
       }
     </style>
   </body>
