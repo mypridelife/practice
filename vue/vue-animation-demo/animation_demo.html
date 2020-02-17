@@ -74,6 +74,10 @@ Velocity 和 jQuery.animate 的工作方式类似，也是用来实现 JavaScrip
           {{move?"向下移动":"向上移动"}}
         </div>
       </div>
+      <!-- key -->
+      <div>
+        name:<input type="text" @keyup.enter="onSubmit" v-model="name" />
+      </div>
     </div>
 
     <script>
@@ -107,7 +111,8 @@ Velocity 和 jQuery.animate 的工作方式类似，也是用来实现 JavaScrip
           showAnimation: true,
           showJavascript: false,
           showSlide: false,
-          move: false
+          move: false,
+          name: ''
         },
         methods: {
           beforeEnter: function(el) {
@@ -135,6 +140,9 @@ Velocity 和 jQuery.animate 的工作方式类似，也是用来实现 JavaScrip
               },
               { complete: done }
             )
+          },
+          onSubmit() {
+            alert(this.name)
           }
         }
       })
