@@ -5,21 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>animation_demo</title>
     <script src="../vue.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"
+    />
     <!--
-Velocity 和 jQuery.animate 的工作方式类似，也是用来实现 JavaScript 动画的一个很棒的选择
--->
+    Velocity 和 jQuery.animate 的工作方式类似，也是用来实现 JavaScript 动画的一个很棒的选择
+    -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
   </head>
   <body>
     <div id="app">
       <!-- 过渡 -->
-      <div id="example-1">
-        <button @click="showTransition = !showTransition">
-          Toggle showTransition
-        </button>
-        <transition name="slide-fade">
-          <p v-if="showTransition">hello</p>
-        </transition>
+      <div class="guodu">
+        <div id="example-1">
+          <button @click="showTransition = !showTransition">
+            Toggle showTransition
+          </button>
+          <transition name="slide-fade">
+            <p v-if="showTransition">hello</p>
+          </transition>
+        </div>
+        <div class="example-1-1">
+          <button @click="showTransition = !showTransition">
+            Toggle showTransition
+          </button>
+          <transition name="slide-fade">
+            <p v-if="showTransition">hello</p>
+          </transition>
+        </div>
+        <div>
+          <button @click="showAnimateCss = !showAnimateCss">
+            Toggle showAnimateCss
+          </button>
+          <div :class="[showAnimateCss?'animated bounce ':'']">
+            Example
+          </div>
+        </div>
       </div>
       <!-- 动画 -->
       <div id="example-2">
@@ -112,7 +134,8 @@ Velocity 和 jQuery.animate 的工作方式类似，也是用来实现 JavaScrip
           showJavascript: false,
           showSlide: false,
           move: false,
-          name: ''
+          name: '',
+          showAnimateCss: false
         },
         methods: {
           beforeEnter: function(el) {
@@ -148,6 +171,9 @@ Velocity 和 jQuery.animate 的工作方式类似，也是用来实现 JavaScrip
       })
     </script>
     <style>
+      .guodu {
+        display: flex;
+      }
       /* 过渡 */
       /* 可以设置不同的进入和离开动画 */
       /* 设置持续时间和动画函数 */
