@@ -27,11 +27,13 @@
           </transition>
         </div>
         <div class="example-1-1">
-          <button @click="showTransition = !showTransition">
-            Toggle showTransition
+          <button @click="fadeTransition = !fadeTransition">
+            Toggle fadeTransition
           </button>
-          <transition name="slide-fade">
-            <p v-if="showTransition">hello</p>
+          <transition name="fade-transition">
+            <div v-if="fadeTransition">
+              hello
+            </div>
           </transition>
         </div>
         <div>
@@ -130,6 +132,7 @@
             animation-paly-state:paused|running;
             `,
           showTransition: true,
+          fadeTransition: true,
           showAnimation: true,
           showJavascript: false,
           showSlide: false,
@@ -186,6 +189,16 @@
       .slide-fade-enter,
       .slide-fade-leave-to {
         transform: translateX(10px);
+        opacity: 0;
+      }
+      .fade-transition-enter-active {
+        transition: all 2s ease;
+      }
+      .fade-transition-leave-active {
+        transition: all 2s cubic-bezier(1, 0.5, 0.8, 1);
+      }
+      .slide-fade-enter,
+      .fade-transition-leave-to {
         opacity: 0;
       }
 
