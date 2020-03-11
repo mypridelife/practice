@@ -167,6 +167,7 @@ FL.insertSentence = function(content) {
   ];
   var innerHTML = "";
   FL.sentences.forEach((sentence, index) => {
+    var lrc_container = document.createElement("div");
     var en = document.createElement("p");
     var cn = document.createElement("p");
     en.innerHTML = sentence.en || "";
@@ -175,6 +176,7 @@ FL.insertSentence = function(content) {
     cn.id = `sentence_cn_${index}`;
     en.classList.add("en");
     cn.classList.add("cn");
+    lrc_container.classList.add("lrc-container");
 
     en.setAttribute(
       "onclick",
@@ -184,9 +186,9 @@ FL.insertSentence = function(content) {
       "onclick",
       `javascript:FL.callback('sentenceSelected:${index}')`
     );
+    lrc_container.innerHTML = en.outerHTML + cn.outerHTML;
 
-    innerHTML = innerHTML + en.outerHTML;
-    innerHTML = innerHTML + cn.outerHTML;
+    innerHTML = innerHTML + lrc_container.outerHTML;
   });
 
   FL.container.innerHTML = innerHTML;

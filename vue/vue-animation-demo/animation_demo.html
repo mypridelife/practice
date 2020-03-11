@@ -102,6 +102,13 @@
       <div>
         name:<input type="text" @keyup.enter="onSubmit" v-model="name" />
       </div>
+      <div>
+        <span class="underlinespan">Underline</span>
+      </div>
+      <svg viewBox="0 0 50 50">
+        <circle class="ring" cx="25" cy="25" r="20"></circle>
+        <circle class="ball" cx="25" cy="5" r="3.5"></circle>
+      </svg>
     </div>
 
     <script>
@@ -255,6 +262,48 @@
         bottom: 200px;
         left: 20px;
         /* transform: translateY(-100px); */
+      }
+      .underlinespan {
+        position: relative;
+      }
+
+      .underlinespan::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background-color: #3cefff;
+        transform-origin: bottom right;
+        /* transform: scaleX(0); */
+        transition: transform 0.5s ease;
+      }
+
+      .underlinespan:hover::before {
+        transform-origin: bottom left;
+        transform: scaleX(1);
+      }
+      svg {
+        width: 3.75em;
+        animation: 1.5s spin ease infinite;
+      }
+
+      .ring {
+        fill: none;
+        stroke: hsla(341, 97%, 59%, 0.3);
+        stroke-width: 2;
+      }
+
+      .ball {
+        fill: #fc2f70;
+        stroke: none;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
       }
     </style>
   </body>
