@@ -313,8 +313,40 @@ FL.setFontSize = function(type) {
   }
 };
 
-document.addEventListener("selectionchange", e => {
-  FL.callback(`contentSelected:${window.getSelection()}`);
+// bind selection change event to my function
+document.onselectionchange = userSelectionChanged;
+var selectionEndTimeout = null;
+function userSelectionChanged() {
+  // wait 500 ms after the last selection change event
+  if (selectionEndTimeout) {
+    clearTimeout(selectionEndTimeout);
+  }
+
+  selectionEndTimeout = setTimeout(function() {
+    $(window).trigger("selectionEnd");
+  }, 500);
+}
+
+function getSelectionText() {
+  var text = "";
+  if (window.getSelection) {
+    text = window.getSelection().toString();
+  } else if (document.selection && document.selection.type != "Control") {
+    text = document.selection.createRange().text;
+  }
+  return text;
+}
+
+$(window).bind("selectionEnd", function() {
+  // reset selection timeout
+  selectionEndTimeout = null;
+
+  // get user selection
+  var selection = getSelectionText();
+  console.log(selection);
+
+  // if the selection is not empty show it :)
+  FL.callback(`contentSelected:${selection}`);
 });
 
 let indexS = 0;
