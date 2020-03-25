@@ -84,3 +84,13 @@
 // console.log(Counter.value()); /* logs 2 */
 // Counter.decrement();
 // console.log(Counter.value()); /* logs 1 */
+
+function foo() {
+  var a = 2;
+  return function innnerFoo() {
+    a++;
+    console.log(a);
+  };
+}
+
+var fooTest = foo();
