@@ -1,53 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>科宇环境-招募项目合伙人</title>
+    <meta id="metaDescription" name="description" content="专做智能环境与节能服务的店小二" />
+    <meta itemprop="name" content="科宇环境-招募项目合伙人" />
+    <meta itemprop="image"
+        content="https://img.xiumi.us/xmi/ua/1OqPJ/i/d9830cfba7a827d370234a0e62d71f9f-sz_412594.PNG?x-oss-process=style/xm" />
+    <meta name="description" itemprop="description" content="专做智能环境与节能服务的店小二" />
     <link rel="stylesheet" href="./styles/swiper.min.css" />
     <link rel="stylesheet" href="./styles/animate.min.css" />
     <link rel="stylesheet" href="./styles/index.css" />
-  </head>
-  <body>
+    <style>
+        #container {
+            min-width: 400px;
+            min-height: 400px;
+        }
+    </style>
+</head>
+
+<body>
     <div id="app">
-      <div class="swiper-container">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <div class="page-one">
-              <img src="./images/pageone_bg.png" class="pageone-bg" />
-              <img
-                src="./images/pageone_circle.png"
-                class="pageone-circle"
-                v-show="showPageoneCircle"
-              />
-              <div class="pageone-text-container flex" v-show="showPageoneText">
-                <div class="pageone-text">
-                  {{pageoneText}}
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide">
+                    <div class="page-one">
+                        <div class="pageone-image-container ">
+                            <img src="./images/1/pageone_image.png" class="pageone-image" v-show="showPageoneImage" />
+                        </div>
+                        <div class="pageone-text-container flex m-center s-center column slow">
+                            <div class="pageone-text1" v-show="showPageoneText">
+                                {{pageoneText1}}
+                            </div>
+                            <div class="pageone-text2" v-show="showPageoneText">
+                                {{pageoneText2}}
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
+
+                <div class="swiper-slide">
+                    <div class="page-two">
+                        <div class="pagetwo-image-container">
+                            <img src="./images/2/pagetwo_image2.png" class="pagetwo-image2 "
+                                v-show="showPagetwoImage2" />
+                            <img src="./images/2/pagetwo_image1.png" class="pagetwo-image1 "
+                                v-show="showPagetwoImage1" />
+                        </div>
+
+                        <div class="pagetwo-text-container flex m-center s-center column">
+                            <div class="pagetwo-text1 " v-show="showPagetwoText1"><span>{{pagetwoText1}}</span>
+                                <span style="margin-left:20px;">{{pagetwoText1_1}}</span></div>
+                            <div class="pagetwo-text2 " v-show="showPagetwoText2">
+                                {{pagetwoText2}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="page-three">
+                        <div class="pagethree-image-container">
+                            <img src="./images/3/pagethree_image.png" class="pagethree-image "
+                                v-show="showPagethreeImage" />
+                            <img src="./images/3/pagethree_image4.png" class="pagethree-image4 "
+                                v-show="showPagethreeImage4" />
+                        </div>
+                        <div class="pagethree-text-container flex column">
+                            <div class="pagethree-text1 flex column s-start" v-show="showPagethreeText1">
+                                <span>{{pagethreeText1}}</span>
+                                <span style="margin-top:15px;">{{pagethreeText1_1}}</span>
+                                <span style="margin-top:15px;">{{pagethreeText1_2}}</span>
+                            </div>
+                            <img src="./images/3/pagethree_text2.png" class="pagethree-text2-bg "
+                                v-show="showPagethreeText2" />
+                            <div class="pagethree-text2 flex column " v-show="showPagethreeText2">
+                                <span>{{pagethreeText2}}</span>
+                                <span>{{pagethreeText2_1}}</span>
+                            </div>
+                            <img src="./images/3/pagethree_text3.png" class="pagethree-text3 "
+                                v-show="showPagethreeText3" />
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="page-four">
+                        <div class="pagefour-image-container">
+                            <img src="./images/pagethree_image.png" class="pagefour-image" />
+                            <img src="./images/pagethree_image4.png" class="pagefour-image4" />
+                            <img src="./images/4/frame.png" class="pagefour-frame" />
+                        </div>
+                        <div class="pagefour-text-container flex column">
+                            <div v-for="(t,i) in pagefourContents" :key="i">
+                                <div v-if="t.img" :id="'page4-text'+i">
+                                    <img v-if="t.visiable" :src="t.img" class="page4-p" />
+                                    <span v-else class="page4-p">&nbsp</span>
+                                </div>
+                                <div v-else class="page4-text" :id="'page4-text'+i">
+                                    <span v-if="t.visiable">{{t.text}}</span>
+                                    <span v-else>&nbsp</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 
+                <div class="swiper-slide">
+                    <div class="page-five">
+                        <img src="./images/pagefive_bg.png" class="pagefive-bg" />
+                        <img src="./images/pagefive_image.png" class="pagefive-image" v-show="showPagefiveImage" />
+                        <div class="pagefive-text-container flex m-center s-center" v-show="showPagefiveText">
+                            <div class="pagefive-text">
+                                {{pagefiveText}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="page-six">
+                        <img src="./images/pagesix_bg.png" class="pagesix-bg" />
+                        <img src="./images/pagesix_image.png" class="pagesix-image" v-show="showPagesixImage" />
+                        <div class="pagesix-text-container flex m-center s-center" v-show="showPagesixText">
+                            <div class="pagesix-text">
+                                {{pagesixText}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="page-seven">
+                        <img src="./images/pageseven_bg.png" class="pageseven-bg" />
+                        <img src="./images/pageseven_image.png" class="pageseven-image" v-show="showPagesevenImage" />
+                        <div class="pageseven-text-container flex m-center s-center" v-show="showPagesevenText">
+                            <div class="pageseven-text">
+                                {{pagesevenText}}
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
             </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="page-two">
-              <img src="./images/pageone_bg.png" class="pagetwo-bg" />
-              <img src="./images/pageone_circle.png" class="pagetwo-circle" />
-            </div>
-          </div>
-          <div class="swiper-slide">Slide 3</div>
-          <div class="swiper-slide">Slide 4</div>
-          <div class="swiper-slide">Slide 5</div>
-          <div class="swiper-slide">Slide 6</div>
-          <div class="swiper-slide">Slide 7</div>
-          <div class="swiper-slide">Slide 8</div>
-          <div class="swiper-slide">Slide 9</div>
-          <div class="swiper-slide">Slide 10</div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
         </div>
-        <!-- Add Pagination -->
-        <div class="swiper-pagination"></div>
-      </div>
+        <div class="bg-logo">
+            <img src="./images/logo.png" class="bg-logo-img" />
+        </div>
+        <div class="bg-music" @click="handlePlay">
+            <img src="./images/bg_music.png" class="bg-music-img xuanzhun" :class="{'xuanzhuan-pause':!isPlaying}" />
+            <div class="bg-pause" v-show="!isPlaying"></div>
+        </div>
+        <div class="bg-arrow">
+            <img src="./images/bg_arrow.png" class="bg-arrow-img" />
+        </div>
     </div>
-    <script src="./scripts/swiper.min.js"></script>
-    <script src="./scripts/vue.js"></script>
+    <script src="https://cdn.bootcss.com/vue/2.6.11/vue.min.js"></script>
+    <script src="https://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+    <script charset="utf-8" src="https://map.qq.com/api/js?v=2.exp&key=VAPBZ-D6IEW-IBURT-OL5EG-CXNB2-GMFJN"></script>
+    <script src="https://cdn.bootcss.com/axios/0.19.2/axios.min.js"></script>
+    <script src="https://cdn.bootcss.com/Swiper/4.5.1/js/swiper.min.js"></script>
     <script src="./scripts/index.js"></script>
-  </body>
+</body>
+
 </html>
