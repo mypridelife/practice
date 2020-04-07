@@ -8,3 +8,11 @@ let timer2 = setTimeout(() => {
 }, 1000)
 // clearTimeout(timer2)
 console.log('timer2 外', timer2)
+
+let a = 'aaa'
+try {
+  console.log('b', b)
+  console.log('a', a)
+} catch (error) {
+  console.log('hhh', error)
+}

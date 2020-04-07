@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div v-html="paper" class="content">{{paper}}</div>
+        <div class="content">{{paper2}}</div>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                paper: '<div>hhhhhhhhhhhhhhsssss</div>',
+                paper2:'222'
+            },
+        })
+    </script>
+</body>
+
+</html>

@@ -1,121 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>animation_demo</title>
     <script src="../vue.js"></script>
     <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"
-    />
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" />
     <!--
     Velocity 和 jQuery.animate 的工作方式类似，也是用来实现 JavaScript 动画的一个很棒的选择
     -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
-  </head>
-  <body>
+</head>
+
+<body>
     <div id="app">
-      <!-- 过渡 -->
-      <div class="guodu">
-        <div id="example-1">
-          <button @click="showTransition = !showTransition">
-            Toggle showTransition
-          </button>
-          <transition name="slide-fade">
-            <p v-if="showTransition">hello</p>
-          </transition>
-        </div>
-        <div class="example-1-1">
-          <button @click="fadeTransition = !fadeTransition">
-            Toggle fadeTransition
-          </button>
-          <transition name="fade-transition">
-            <div v-if="fadeTransition">
-              hello
+        <!-- 过渡 -->
+        <div class="guodu">
+            <div id="example-1">
+                <button @click="showTransition = !showTransition">
+                    Toggle showTransition
+                </button>
+                <transition name="slide-fade">
+                    <p v-if="showTransition">hello</p>
+                </transition>
             </div>
-          </transition>
+            <div class="example-1-1">
+                <button @click="fadeTransition = !fadeTransition">
+                    Toggle fadeTransition
+                </button>
+                <transition name="fade-transition">
+                    <div v-if="fadeTransition">
+                        hello
+                    </div>
+                </transition>
+            </div>
+            <div>
+                <button @click="showAnimateCss = !showAnimateCss">
+                    Toggle showAnimateCss
+                </button>
+                <div :class="[showAnimateCss?'animated bounce ':'']">
+                    Example
+                </div>
+            </div>
+        </div>
+        <!-- 动画 -->
+        <div id="example-2">
+            <button @click="showAnimation = !showAnimation">
+                Toggle showAnimation
+            </button>
+            <transition name="bounce">
+                <p v-if="showAnimation">
+                    {{text}}
+                </p>
+            </transition>
+        </div>
+        <!-- javaScript 钩子 -->
+        <div id="example-4">
+            <button @click="showJavascript = !showJavascript">
+                Toggle
+            </button>
+            <transition
+                v-on:before-enter="beforeEnter"
+                v-on:enter="enter"
+                v-on:leave="leave"
+                v-bind:css="false">
+                <p v-if="showJavascript">
+                    Demo
+                </p>
+            </transition>
+        </div>
+        <!-- slide效果 -->
+        <div>
+            <button v-on:click="showSlide = !showSlide">
+                slideToggle
+            </button>
+            <transition name="ul">
+                <ul v-if="showSlide" class="ul-box">
+                    <li>11111111111111</li>
+                    <li>11111111111111</li>
+                    <li>11111111111111</li>
+                    <li>11111111111111</li>
+                    <li>11111111111111</li>
+                    <li>11111111111111</li>
+                    <li>11111111111111</li>
+                    <li>11111111111111</li>
+                    <li>11111111111111</li>
+                    <li>11111111111111</li>
+                </ul>
+            </transition>
+        </div>
+        <!-- 垂直移动 -->
+        <div class="m-move-box">
+            <div @click="move=!move" :class="['u-move-box',move?'u-move-end':'']">
+                {{move?"向下移动":"向上移动"}}
+            </div>
+        </div>
+        <!-- key -->
+        <div>
+            name:<input type="text" @keyup.enter="onSubmit" v-model="name" />
         </div>
         <div>
-          <button @click="showAnimateCss = !showAnimateCss">
-            Toggle showAnimateCss
-          </button>
-          <div :class="[showAnimateCss?'animated bounce ':'']">
-            Example
-          </div>
+            <span class="underlinespan">Underline</span>
         </div>
-      </div>
-      <!-- 动画 -->
-      <div id="example-2">
-        <button @click="showAnimation = !showAnimation">
-          Toggle showAnimation
-        </button>
-        <transition name="bounce">
-          <p v-if="showAnimation">
-            {{text}}
-          </p>
-        </transition>
-      </div>
-      <!-- javaScript 钩子 -->
-      <div id="example-4">
-        <button @click="showJavascript = !showJavascript">
-          Toggle
-        </button>
-        <transition
-          v-on:before-enter="beforeEnter"
-          v-on:enter="enter"
-          v-on:leave="leave"
-          v-bind:css="false"
-        >
-          <p v-if="showJavascript">
-            Demo
-          </p>
-        </transition>
-      </div>
-      <!-- slide效果 -->
-      <div>
-        <button v-on:click="showSlide = !showSlide">
-          slideToggle
-        </button>
-        <transition name="ul">
-          <ul v-if="showSlide" class="ul-box">
-            <li>11111111111111</li>
-            <li>11111111111111</li>
-            <li>11111111111111</li>
-            <li>11111111111111</li>
-            <li>11111111111111</li>
-            <li>11111111111111</li>
-            <li>11111111111111</li>
-            <li>11111111111111</li>
-            <li>11111111111111</li>
-            <li>11111111111111</li>
-          </ul>
-        </transition>
-      </div>
-      <!-- 垂直移动 -->
-      <div class="m-move-box">
-        <div @click="move=!move" :class="['u-move-box',move?'u-move-end':'']">
-          {{move?"向下移动":"向上移动"}}
-        </div>
-      </div>
-      <!-- key -->
-      <div>
-        name:<input type="text" @keyup.enter="onSubmit" v-model="name" />
-      </div>
-      <div>
-        <span class="underlinespan">Underline</span>
-      </div>
-      <svg viewBox="0 0 50 50">
-        <circle class="ring" cx="25" cy="25" r="20"></circle>
-        <circle class="ball" cx="25" cy="5" r="3.5"></circle>
-      </svg>
+        <svg viewBox="0 0 50 50">
+            <circle class="ring" cx="25" cy="25" r="20"></circle>
+            <circle class="ball" cx="25" cy="5" r="3.5"></circle>
+        </svg>
     </div>
 
     <script>
-      new Vue({
-        el: '#app',
-        data: {
-          text: `
+        new Vue({
+            el: '#app',
+            data: {
+                text: `
             属性: transition
             transition-property: 动画展示哪些属性，可以使用all关键字；
             transition--duration: 动画过程有多久；
@@ -138,173 +138,200 @@
             animation-fill-mode:告诉浏览器将元素的格式保持为动画结束时候的样子/或没开始。
             animation-paly-state:paused|running;
             `,
-          showTransition: true,
-          fadeTransition: true,
-          showAnimation: true,
-          showJavascript: false,
-          showSlide: false,
-          move: false,
-          name: '',
-          showAnimateCss: false
-        },
-        methods: {
-          beforeEnter: function(el) {
-            el.style.opacity = 0
-            el.style.transformOrigin = 'left'
-          },
-          enter: function(el, done) {
-            Velocity(el, { opacity: 1, fontSize: '1.4em' }, { duration: 300 })
-            Velocity(el, { fontSize: '1em' }, { complete: done })
-          },
-          leave: function(el, done) {
-            Velocity(
-              el,
-              { translateX: '15px', rotateZ: '50deg' },
-              { duration: 600 }
-            )
-            Velocity(el, { rotateZ: '100deg' }, { loop: 2 })
-            Velocity(
-              el,
-              {
-                rotateZ: '90deg',
-                translateY: '30px',
-                translateX: '30px',
-                opacity: 0
-              },
-              { complete: done }
-            )
-          },
-          onSubmit() {
-            alert(this.name)
-          }
-        }
-      })
+                showTransition: true,
+                fadeTransition: true,
+                showAnimation: true,
+                showJavascript: false,
+                showSlide: false,
+                move: false,
+                name: '',
+                showAnimateCss: false
+            },
+            methods: {
+                beforeEnter: function (el) {
+                    el.style.opacity = 0
+                    el.style.transformOrigin = 'left'
+                },
+                enter: function (el, done) {
+                    Velocity(el, { opacity: 1, fontSize: '1.4em' }, { duration: 300 })
+                    Velocity(el, { fontSize: '1em' }, { complete: done })
+                },
+                leave: function (el, done) {
+                    Velocity(
+                        el,
+                        { translateX: '15px', rotateZ: '50deg' },
+                        { duration: 600 }
+                    )
+                    Velocity(el, { rotateZ: '100deg' }, { loop: 2 })
+                    Velocity(
+                        el,
+                        {
+                            rotateZ: '90deg',
+                            translateY: '30px',
+                            translateX: '30px',
+                            opacity: 0
+                        },
+                        { complete: done }
+                    )
+                },
+                onSubmit() {
+                    alert(this.name)
+                }
+            }
+        })
     </script>
     <style>
-      .guodu {
-        display: flex;
-      }
-      /* 过渡 */
-      /* 可以设置不同的进入和离开动画 */
-      /* 设置持续时间和动画函数 */
-      .slide-fade-enter-active {
-        transition: all 0.3s ease;
-      }
-      .slide-fade-leave-active {
-        transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
-      }
-      .slide-fade-enter,
-      .slide-fade-leave-to {
-        transform: translateX(10px);
-        opacity: 0;
-      }
-      .fade-transition-enter-active {
-        transition: all 2s ease;
-      }
-      .fade-transition-leave-active {
-        transition: all 2s cubic-bezier(1, 0.5, 0.8, 1);
-      }
-      .slide-fade-enter,
-      .fade-transition-leave-to {
-        opacity: 0;
-      }
-
-      /* 动画 */
-      .bounce-enter-active {
-        animation: bounce-in 0.5s;
-      }
-      .bounce-leave-active {
-        animation: bounce-in 0.5s reverse;
-      }
-      @keyframes bounce-in {
-        0% {
-          transform: scale(0);
+        .guodu {
+            display: flex;
         }
-        50% {
-          transform: scale(1.5);
+
+        /* 过渡 */
+        /* 可以设置不同的进入和离开动画 */
+        /* 设置持续时间和动画函数 */
+        .slide-fade-enter-active {
+            transition: all 0.3s ease;
         }
-        100% {
-          transform: scale(1);
+
+        .slide-fade-leave-active {
+            transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
         }
-      }
-      /* slide效果 */
-      .ul-box {
-        height: 300px;
-        overflow: hidden;
-      }
-      .ul-enter-active,
-      .ul-leave-active {
-        transition: all 0.5s;
-      }
-      .ul-enter,
-      .ul-leave-to {
-        height: 0;
-      }
-      /* 垂直移动 */
-      .m-move-box {
-        position: relative;
-        height: 300px;
-        width: 300px;
-        background-color: brown;
-      }
-      .u-move-box {
-        height: 40px;
-        width: 40px;
-        background-color: yellowgreen;
-        position: absolute;
-        bottom: 10px;
-        left: 130px;
 
-        transition: all 1s ease;
-      }
-      .u-move-end {
-        position: absolute;
-        bottom: 200px;
-        left: 20px;
-        /* transform: translateY(-100px); */
-      }
-      .underlinespan {
-        position: relative;
-      }
-
-      .underlinespan::before {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 2px;
-        background-color: #3cefff;
-        transform-origin: bottom right;
-        /* transform: scaleX(0); */
-        transition: transform 0.5s ease;
-      }
-
-      .underlinespan:hover::before {
-        transform-origin: bottom left;
-        transform: scaleX(1);
-      }
-      svg {
-        width: 3.75em;
-        animation: 1.5s spin ease infinite;
-      }
-
-      .ring {
-        fill: none;
-        stroke: hsla(341, 97%, 59%, 0.3);
-        stroke-width: 2;
-      }
-
-      .ball {
-        fill: #fc2f70;
-        stroke: none;
-      }
-
-      @keyframes spin {
-        to {
-          transform: rotate(360deg);
+        .slide-fade-enter,
+        .slide-fade-leave-to {
+            transform: translateX(10px);
+            opacity: 0;
         }
-      }
+
+        .fade-transition-enter-active {
+            transition: all 2s ease;
+        }
+
+        .fade-transition-leave-active {
+            transition: all 2s cubic-bezier(1, 0.5, 0.8, 1);
+        }
+
+        .slide-fade-enter,
+        .fade-transition-leave-to {
+            opacity: 0;
+        }
+
+        /* 动画 */
+        .bounce-enter-active {
+            animation: bounce-in 0.5s;
+        }
+
+        .bounce-leave-active {
+            animation: bounce-in 0.5s reverse;
+        }
+
+        @keyframes bounce-in {
+            0% {
+                transform: scale(0);
+            }
+
+            50% {
+                transform: scale(1.5);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* slide效果 */
+        .ul-box {
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .ul-enter-active,
+        .ul-leave-active {
+            transition: all 0.5s;
+        }
+
+        .ul-enter,
+        .ul-leave-to {
+            height: 0;
+        }
+
+        /* 垂直移动 */
+        .m-move-box {
+            position: relative;
+            height: 300px;
+            width: 300px;
+            background-color: brown;
+        }
+
+        .u-move-box {
+            height: 40px;
+            width: 40px;
+            background-color: yellowgreen;
+            position: absolute;
+            bottom: 10px;
+            left: 130px;
+
+            transition: all 1s ease;
+        }
+
+        .u-move-end {
+            position: absolute;
+            bottom: 200px;
+            left: 20px;
+            /* transform: translateY(-100px); */
+        }
+
+        .underlinespan {
+            position: relative;
+        }
+
+        .underlinespan::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: #3cefff;
+            transform-origin: bottom right;
+            /* transform: scaleX(0); */
+            transition: transform 0.5s ease;
+        }
+
+        .underlinespan:hover::before {
+            transform-origin: bottom left;
+            transform: scaleX(1);
+        }
+
+        svg {
+            width: 3.75em;
+            animation: 1.5s spin ease infinite;
+        }
+
+        .ring {
+            fill: none;
+            stroke: hsla(341, 97%, 59%, 0.3);
+            stroke-width: 2;
+        }
+
+        .ball {
+            fill: #fc2f70;
+            stroke: none;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .content {
+            font-size: 20px;
+            width: 150px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
     </style>
-  </body>
+</body>
+
 </html>
