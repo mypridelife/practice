@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <!--第一步：引入vue.js-->
+    <link rel="stylesheet" type="text/css" href="./asserts/vue/iview.css">
+    <script type="text/javascript" src="./asserts/vue/vue.min.js"></script>
+    <script type="text/javascript" src="./asserts/vue/iview.min.js"></script>
+    <script src="./asserts/vue/axios.min.js"></script>
+</head>
+
+<body>
+    <!--第二步：创建模板-->
+    <div id="app">
+        <p>{{total}}</p>
+        <my-component @add='handleTotal' @reduce='handleTotal'>
+
+        </my-component>
+    </div>
+</body>
+<!--第三步：创建vue对象-->
+<script>
+    Vue.component('my-component', {
+        template: '<div>\
+            <button @click="handleAdd">+1</button>\
+            <button @click="handleReduce">-1</button>\
+            </div>',
+        data() {
+            return {
+                counter: 0
+            }
+        },
+        methods: {
+            handleAdd() {
+                this.counter++
+                this.$emit('add', this.counter)
+            },
+            handleReduce() {
+                this.counter--
+                this.$emit('reduce', this.counter)
+            }
+        }
+    })
+    new Vue({
+        //边界管理
+        el: '#app',
+        //data 存放数据
+        data: {
+            total: 0
+        },
+        components: {
+
+        },
+        created() {
+
+        },
+        mounted() {
+
+        },
+        methods: {
+            handleTotal(total) {
+                this.total = total
+            }
+        },
+        computed: {
+
+        },
+        watch: {
+
+        }
+    })
+</script>
+
+<style>
+    #app {
+        padding: 32px;
+    }
+</style>
+
+</html>

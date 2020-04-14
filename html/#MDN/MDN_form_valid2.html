@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            position: absolute;
+            left: 440px;
+            top: 360px;
+
+            padding: 5px;
+
+            font: bold .6em sans-serif;
+            border: 2px solid #333;
+            border-radius: 5px;
+            background: none;
+
+            cursor: pointer;
+
+            -webkit-transform: rotate(-1.5deg);
+            -moz-transform: rotate(-1.5deg);
+            -ms-transform: rotate(-1.5deg);
+            -o-transform: rotate(-1.5deg);
+            transform: rotate(-1.5deg);
+        }
+
+        button:after {
+            content: " >>>";
+        }
+
+        button:hover,
+        button:focus {
+            outline: none;
+            background: #000;
+            color: #FFF;
+        }
+
+        input[type=search] {
+            border: 1px dotted #999;
+            border-radius: 0;
+
+            -webkit-appearance: none;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <label for="mail">I would like you to provide me an e-mail</label>
+        <input type="email" id="mail" name="mail">
+        <label for="myColor">
+            Pick a color
+            <input type="color" id="myColor" name="color">
+        </label>
+        <input type="search">
+        <button>Submit</button>
+    </form>
+    <script>
+        var email = document.getElementById("mail");
+
+        email.addEventListener("input", function (event) {
+            if (email.validity.typeMismatch) {
+                email.setCustomValidity("I expect an e-mail, darling!");
+            } else {
+                email.setCustomValidity("");
+            }
+        });
+    </script>
+</body>
+
+</html>

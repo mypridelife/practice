@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+   <audio controls autoplay></audio>
+    <input type="button" value="开始录音" onclick="startRecording()" />
+    <input type="button" value="获取录音" onclick="obtainRecord()" />
+    <input type="button" value="停止录音" onclick="stopRecord()" />
+    <input type="button" value="播放录音" onclick="playRecord()" />
+
+    <script src="./js/record.js"></script>
+    <script>
+      var recorder;
+      var audio = document.querySelector("audio");
+
+      function startRecording() {
+        HZRecorder.get(function(rec) {
+          recorder = rec;
+          recorder.start();
+        });
+      }
+
+      function obtainRecord() {
+        var record = recorder.getBlob();
+        debugger;
+      }
+
+      function stopRecord() {
+        recorder.stop();
+      }
+
+      function playRecord() {
+        recorder.play(audio);
+      }
+    </script>
+  </body>
+</html>
