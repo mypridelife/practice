@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            color: red;
+        }
+
+        p,
+        li {
+            color: green;
+        }
+
+        li {
+            list-style-type: square;
+        }
+
+        span.special,
+        li.special {
+            color: orange;
+            font-weight: bold;
+        }
+
+        li em {
+            color: rebeccapurple;
+        }
+
+        h1+p {
+            font-size: 200%;
+        }
+
+        .cal {
+            width: calc(1000px - 30px);
+            background-color: bisque;
+        }
+
+        body {
+            background-color: pink;
+            position: relative;
+        }
+
+        @media (max-width: 30em) {
+            body {
+                background-color: blue;
+            }
+        }
+
+        .arrow_box {
+            position: relative;
+            left: 100px;
+            width: 100px;
+            height: 50px;
+            background: #88b7d5;
+        }
+
+        .arrow_box:before {
+            right: 100%;
+            top: 50%;
+            border: solid transparent;
+            content: " ";
+            height: 0;
+            width: 0;
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .arrow_box:before {
+            border-color: rgba(194, 225, 245, 0);
+            border-right-color: #c2e1f5;
+            border-width: 36px;
+            margin-top: -36px;
+        }
+
+        .block-box {
+            background-color: red;
+        }
+
+        .box {
+            border: 5px solid rebeccapurple;
+            background-color: lightgray;
+            padding: 40px;
+            margin: 40px;
+            width: 300px;
+            height: 150px;
+        }
+
+        .alternate {
+            box-sizing: border-box;
+        }
+
+        .one {
+            margin-bottom: 50px;
+        }
+
+        .two {
+            margin-top: 20px;
+        }
+
+        .sanjiao2 {
+            border: 100px solid;
+            border-radius: 50px;
+            border-top-color: aqua;
+            /* border-color: #88b7d5 red yellow green; */
+            width: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <p class="one">I am paragraph one.</p>
+        <p class="two">I am paragraph two.</p>
+    </div>
+    <div class="sanjiao2">
+    </div>
+
+    <h1>我是一级标题</h1>
+
+    <p>这是一个段落文本. 在文本中有一个 <span class="special">span element</span>
+        并且还有一个 <a href="http://example.com">链接</a>.</p>
+
+    <p>这是第二段. 包含了一个 <em>强调</em> 元素.</p>
+
+    <ul>
+        <li>项目1</li>
+        <li class="special">项目2</li>
+        <li>项目 <em>三</em></li>
+    </ul>
+    <div class="cal">
+        hhh
+    </div>
+
+    <div class="arrow_box">
+        arrow_box
+    </div>
+
+    <div class="block-box">
+        默认宽度
+    </div>
+    <div class="box">I use the standard box model.</div>
+    <div class="box alternate">I use the alternate box model.</div>
+
+</body>
+
+</html>
