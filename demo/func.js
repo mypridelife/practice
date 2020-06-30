@@ -9,3 +9,4 @@ let c = new Date()
 console.log(c)
 let d = Date.now()
 console.log(d)
+//
