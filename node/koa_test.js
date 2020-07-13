@@ -1,5 +1,6 @@
 const koa = require("koa");
 const Router = require("koa-router");
+import hello from "./hello";
 
 const app = new koa();
 const router = Router();
@@ -18,6 +19,7 @@ app.use(async (ctx, next) => {
 
 router.get("/api/test1", async (ctx, next) => {
   console.log("I am the router middleware => /api/test1");
+  hello();
   ctx.body = "hello";
 });
 
