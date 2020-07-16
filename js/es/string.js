@@ -26,7 +26,8 @@ var n = str.indexOf("welcome");
  */
 // string.lastIndexOf(searchvalue, start)
 var str = "I am from runoob，welcome to runoob site.";
-var n = str.lastIndexOf("runoob");
+var n = str.lastIndexOf("a");
+console.log(n);
 /**
  * includes() 方法
  * includes() 方法用于判断字符串是否包含指定的子字符串。如果找到匹配的字符串则返回 true，否则返回 false。
@@ -67,6 +68,8 @@ var n = str.match(/ain/g);
 // string.slice(start,end)
 // string.substr(start, length)
 // string.substring(from, to)
+console.log(str.substring(1, str.length));
+
 /**
  * trim() 方法
  * 去除字符串的头尾空格:
