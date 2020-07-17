@@ -1,5 +1,5 @@
 <!--
-  功能: 功能描述
+  功能: 父子组件传值测试
   作者: gyh
   版本: v0.1
 -->
@@ -12,6 +12,7 @@
       最佳
       <input-text
         :input-value.sync="fatherInputValue"
+        v-model="fatherInputValue2"
         :origin-data="formData"
       />
     </div>
@@ -21,6 +22,10 @@
     </div>
     <div>
       father2:
+      {{ fatherInputValue2 }}
+    </div>
+    <div>
+      father3:
       {{ formData }}
     </div>
     <button @click="handleGetValue">get value</button>
@@ -30,6 +35,7 @@
 <script>
 import InputText from './components/InputText.vue'
 export default {
+  name: 'passvalue',
   components: {
     InputText
   },
@@ -37,6 +43,7 @@ export default {
   data() {
     return {
       fatherInputValue: '',
+      fatherInputValue2: '',
       formData: {
         inputValue: ''
       }
@@ -50,6 +57,11 @@ export default {
     handleGetValue() {
       console.log(this.fatherInputValue)
       console.log(this.formData)
+    }
+  },
+  provide() {
+    return {
+      inputIndex: this
     }
   }
 }

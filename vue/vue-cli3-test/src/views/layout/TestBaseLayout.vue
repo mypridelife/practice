@@ -1,16 +1,17 @@
 <template>
   <div class="p-page">
-    <input v-model.lazy="msg">
+    <input v-model.lazy="msg" />
     {{ msg }}
-    <input v-model.trim="trim">
+    <input v-model.trim="trim" />
     {{ trim }}
     <base-layout>
+      <!-- v-slot:header 可以被重写为 #header -->
       <template v-slot:header>
         <h1>Here might be a page title</h1>
       </template>
 
       <template v-slot:default>
-        <p>A paragraph for the main content.</p>
+        <p>v-slot:header 可以被重写为 #header</p>
         <p>And another one.</p>
       </template>
 
@@ -23,7 +24,7 @@
 </template>
 
 <script>
-import BaseLayout from './components/BaseLayout.vue'
+import BaseLayout from './BaseLayout.vue'
 export default {
   components: {
     BaseLayout
@@ -45,5 +46,4 @@ export default {
 }
 </script>
 
-<style scoped lang="scss" type="text/css">
-</style>
+<style scoped lang="scss" type="text/css"></style>
