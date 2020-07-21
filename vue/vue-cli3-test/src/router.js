@@ -15,7 +15,10 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      redirect: '/passvalue',
+      redirect: '/passvalue'
+    },
+    {
+      path: '/passvalue',
       name: 'passvalue',
       component: () => import('@/views/passvalue/index')
     },
@@ -28,6 +31,16 @@ const router = new Router({
       path: '/hookstest',
       name: 'hookstest',
       component: () => import('@/views/hookstest/index')
+    },
+    {
+      path: '/storetest',
+      name: 'storetest',
+      component: () => import('@/views/storetest/index')
+    },
+    {
+      path: '/functional',
+      name: 'functional',
+      component: () => import('@/views/functional/index')
     }
   ]
 })
