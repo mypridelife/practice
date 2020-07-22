@@ -70,8 +70,8 @@ class FlavorForm extends React.Component {
   }
 
   handleSubmit(event) {
-    alert("你喜欢的风味是: " + this.state.value);
     event.preventDefault();
+    console.log("你喜欢的风味是: " + this.state.value);
   }
 
   render() {
