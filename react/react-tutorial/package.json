@@ -1,0 +1,49 @@
+{
+  "name": "react-tutorial",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "craco eject"
+  },
+  "dependencies": {
+    "@craco/craco": "^5.6.4",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "antd-mobile": "^2.3.3",
+    "axios": "^0.19.2",
+    "cssnano": "^4.1.10",
+    "fastclick": "^1.0.6",
+    "node-sass": "^4.14.1",
+    "normalize.css": "^8.0.1",
+    "postcss-aspect-ratio-mini": "^1.1.0",
+    "postcss-cssnext": "^3.1.0",
+    "postcss-import": "^12.0.1",
+    "postcss-px-to-viewport": "^1.1.1",
+    "postcss-url": "^8.0.0",
+    "postcss-viewport-units": "^0.1.6",
+    "postcss-write-svg": "^3.0.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^3.4.1"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
