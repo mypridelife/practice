@@ -7,10 +7,6 @@ import App from "./views/App/App";
 
 import FastClick from "fastclick";
 FastClick.attach(document.body);
-FastClick.prototype.focus = (ele) => {
-  "use strict";
-  ele.focus();
-};
 
 ReactDOM.render(
   <React.StrictMode>
