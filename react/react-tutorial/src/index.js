@@ -1,8 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./views/App/App";
+import "./styles/index.scss";
 import * as serviceWorker from "./serviceWorker";
+
+import App from "./views/App/App";
+
+import FastClick from "fastclick";
+FastClick.attach(document.body);
+FastClick.prototype.focus = (ele) => {
+  "use strict";
+  ele.focus();
+};
 
 ReactDOM.render(
   <React.StrictMode>

@@ -1,0 +1,20 @@
+@import "./variables.scss";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: "PingFang SC", "STHeitiSC-Light", "Helvetica-Light", arial, sans-serif,
+    "Droid Sans Fallback", "LucidaGrande";
+}
+
+img {
+  content: normal !important;
+}
