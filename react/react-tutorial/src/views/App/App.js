@@ -1,5 +1,4 @@
 import React from "react"
-import "./App.css"
 import MenuList from "../MenuList/MenuList"
 import TodoList from "../TodoList/TodoList"
 import ExampleIndex from "../example/ExampleIndex"

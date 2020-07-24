@@ -1,5 +1,8 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
 @import "./variables.scss";
-@import "./normalize.css";
 
 body {
   font-family: "PingFang SC", "STHeitiSC-Light", "Helvetica-Light", arial, sans-serif,

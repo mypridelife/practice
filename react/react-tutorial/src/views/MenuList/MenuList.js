@@ -7,7 +7,7 @@ const MenuList = () => {
       <h2>Menu</h2>
 
       <ul>
-        <li>
+        <li className="ml-24">
           <Link to="/example/index">Example Index</Link>
         </li>
         <li>

@@ -20,3 +20,7 @@
 ## 增加 axios
 
 增加 axios 封装请求 request.js
+
+## 增加 tailwindcss
+
+去掉 normalize.css，因为 tailwindcss 已经包含

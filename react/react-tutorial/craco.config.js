@@ -26,7 +26,8 @@ module.exports = {
             autoprefixer: false,
           },
         }),
+        require("tailwindcss"),
       ],
     },
   },
-};
+}

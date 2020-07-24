@@ -53,11 +53,13 @@ class TodoList extends Component {
 
 function TodoItem(props) {
   return (
-    <ul>
-      {props.propsItems.map((item) => (
-        <li key={item.id}>{item.text}</li>
+    <div className="ul-container">
+      {props.propsItems.map((item, index) => (
+        <div className="li-item" key={item.id}>
+          {index + 1}. {item.text}
+        </div>
       ))}
-    </ul>
+    </div>
   )
 }
 
