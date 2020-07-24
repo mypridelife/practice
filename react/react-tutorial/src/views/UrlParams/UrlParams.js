@@ -1,5 +1,5 @@
-import React from "react";
-import { HashRouter as Router, Switch, Route, Link, useParams } from "react-router-dom";
+import React from "react"
+import { HashRouter as Router, Switch, Route, Link, useParams } from "react-router-dom"
 
 // Params are placeholders in the URL that begin
 // with a colon, like the `:id` param defined in
@@ -7,7 +7,7 @@ import { HashRouter as Router, Switch, Route, Link, useParams } from "react-rout
 // is used for matching dynamic segments in other
 // popular web frameworks like Rails and Express.
 
-export default function ParamsExample() {
+function UrlParams() {
   return (
     <Router>
       <div>
@@ -15,35 +15,37 @@ export default function ParamsExample() {
 
         <ul>
           <li>
-            <Link to="/netflix">Netflix</Link>
+            <Link to="/url/params/netflix">Netflix</Link>
           </li>
           <li>
-            <Link to="/zillow-group">Zillow Group</Link>
+            <Link to="/url/params/zillow-group">Zillow Group</Link>
           </li>
           <li>
-            <Link to="/yahoo">Yahoo</Link>
+            <Link to="/url/params/yahoo">Yahoo</Link>
           </li>
           <li>
-            <Link to="/modus-create">Modus Create</Link>
+            <Link to="/url/params/modus-create">Modus Create</Link>
           </li>
         </ul>
 
         <Switch>
-          <Route path="/:id" children={<Child />} />
+          <Route path="/url/params/:id" children={<Child />} />
         </Switch>
       </div>
     </Router>
-  );
+  )
 }
 
 function Child() {
   // We can use the `useParams` hook here to access
   // the dynamic pieces of the URL.
-  let { id } = useParams();
+  let { id } = useParams()
 
   return (
     <div>
       <h3>ID: {id}</h3>
     </div>
-  );
+  )
 }
+
+export default UrlParams

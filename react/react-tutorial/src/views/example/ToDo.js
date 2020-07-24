@@ -1,12 +1,12 @@
-import React from "react";
-import style from "./ToDo.module.scss";
+import React from "react"
+import style from "./ToDo.module.scss"
 
 class ToDo extends React.Component {
   constructor(props) {
-    super(props);
-    this.state = { items: [], text: "" };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    super(props)
+    this.state = { items: [], text: "" }
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   render() {
@@ -28,26 +28,26 @@ class ToDo extends React.Component {
         <div className={`${style.m1px2} .hairlines`}></div>
         <div className={`${style.mExample} `}></div>
       </div>
-    );
+    )
   }
 
   handleChange(e) {
-    this.setState({ text: e.target.value });
+    this.setState({ text: e.target.value })
   }
 
   handleSubmit(e) {
-    e.preventDefault();
+    e.preventDefault()
     if (this.state.text.length === 0) {
-      return;
+      return
     }
     const newItem = {
       text: this.state.text,
       id: Date.now(),
-    };
+    }
     this.setState((state) => ({
       items: state.items.concat(newItem),
       text: "",
-    }));
+    }))
   }
 }
 
@@ -59,7 +59,7 @@ class TodoList extends React.Component {
           <li key={item.id}>{item.text}</li>
         ))}
       </ul>
-    );
+    )
   }
 }
-export default ToDo;
+export default ToDo

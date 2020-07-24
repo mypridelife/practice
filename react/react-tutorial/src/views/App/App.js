@@ -1,19 +1,25 @@
-import React from "react";
-import "./App.css";
-import ToDo from "../example/ToDo";
-import FlavorForm from "../example/FlavorForm";
-import UrlParams from "../example/UrlParams";
+import React from "react"
+import "./App.css"
+import MenuList from "../MenuList/MenuList"
+import TodoList from "../TodoList/TodoList"
+import ExampleIndex from "../example/ExampleIndex"
+import UrlParams from "../UrlParams/UrlParams"
+
+import { HashRouter as Router, Switch, Route } from "react-router-dom"
 
 class App extends React.Component {
   render() {
     return (
-      <div>
-        <ToDo />
-        <FlavorForm />
-        <UrlParams />
-      </div>
-    );
+      <Router>
+        <Switch>
+          <Route exact path="/" children={<MenuList />} />
+          <Route path="/example/index" children={<ExampleIndex />} />
+          <Route path="/todo/list" children={<TodoList />} />
+          <Route path="/url/params" children={<UrlParams />} />
+        </Switch>
+      </Router>
+    )
   }
 }
 
-export default App;
+export default App

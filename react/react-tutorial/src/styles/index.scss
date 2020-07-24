@@ -4,7 +4,6 @@
 body {
   font-family: "PingFang SC", "STHeitiSC-Light", "Helvetica-Light", arial, sans-serif,
     "Droid Sans Fallback", "LucidaGrande";
-  background-color: $menuActiveText;
 }
 
 // !viewport-units-buggyfill导致的ios不显示图片问题（https://github.com/rodneyrehm/viewport-units-buggyfill）
