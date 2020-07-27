@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import "./TodoList.scss"
 
 class TodoList extends Component {
   constructor() {
@@ -29,10 +30,10 @@ class TodoList extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="p-todo-list">
         <TodoItem propsItems={this.state.items} />
 
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} className="m-form">
           <div className="form-body">
             <label htmlFor="new-input-todo">what needs to be done?</label>
             <input
@@ -40,10 +41,14 @@ class TodoList extends Component {
               name="input-todo"
               value={this.state.text}
               onChange={this.handleInputChange}
+              placeholder="todo"
+              autoFocus
             />
           </div>
           <div className="form-bottom">
-            <button type="submit">add</button>
+            <button type="submit" className="u-button">
+              add
+            </button>
           </div>
         </form>
       </div>
@@ -53,12 +58,15 @@ class TodoList extends Component {
 
 function TodoItem(props) {
   return (
-    <div className="ul-container">
-      {props.propsItems.map((item, index) => (
-        <div className="li-item" key={item.id}>
-          {index + 1}. {item.text}
-        </div>
-      ))}
+    <div className="c-todo-item">
+      <h2>TODO List</h2>
+      {props.propsItems.length > 0
+        ? props.propsItems.map((item, index) => (
+            <div className="li-item" key={item.id}>
+              {index + 1}. {item.text}
+            </div>
+          ))
+        : "None"}
     </div>
   )
 }

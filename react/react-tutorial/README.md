@@ -4,6 +4,8 @@
 
 增加 craco.config.js 注入 webpack 配置
 
+https://github.com/gsoft-inc/craco/blob/master/packages/craco/README.md#installation
+
 ## 移动端 VW 适配方案
 
 增加 postcss 等库
@@ -24,3 +26,11 @@
 ## 增加 tailwindcss
 
 去掉 normalize.css，因为 tailwindcss 已经包含
+
+## 去掉 tailwindcss
+
+原因 rem 和 vw 重复，不方便适配
+
+## 引入 babel-plugin-import
+
+按需引入 antd-mobile

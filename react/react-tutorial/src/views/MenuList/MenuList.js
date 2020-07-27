@@ -1,13 +1,14 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import "./MenuList.scss"
 
 const MenuList = () => {
   return (
-    <div>
+    <div className="p-menu-list">
       <h2>Menu</h2>
 
-      <ul>
-        <li className="ml-24">
+      <ul className="m-ul">
+        <li>
           <Link to="/example/index">Example Index</Link>
         </li>
         <li>
