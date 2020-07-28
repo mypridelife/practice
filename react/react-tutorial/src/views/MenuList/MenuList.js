@@ -9,14 +9,14 @@ const MenuList = () => {
 
       <ul className="m-ul">
         <li>
+          <Link to="/todo/list">Todo List</Link>
+        </li>
+        {/* <li>
           <Link to="/example/index">Example Index</Link>
         </li>
         <li>
-          <Link to="/todo/list">Todo List</Link>
-        </li>
-        <li>
           <Link to="/url/params">Url Params</Link>
-        </li>
+        </li> */}
       </ul>
     </div>
   )

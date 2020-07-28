@@ -21,7 +21,9 @@ a:hover {
 }
 input {
   outline: none;
-  -webkit-appearance: none;
+}
+button {
+  border-radius: 0;
 }
 
 /*  !viewport-units-buggyfill导致的ios不显示图片问题（https://github.com/rodneyrehm/viewport-units-buggyfill） */

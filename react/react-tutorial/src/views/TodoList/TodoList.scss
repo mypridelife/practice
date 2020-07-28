@@ -1,19 +1,22 @@
+$nSpacing: 20px;
+$sSpacing: 10px;
+
 .p-todo-list {
-  padding: 50px 20px 0;
+  padding: 50px $nSpacing 0;
   .m-form {
-    margin-top: 40px;
     .form-body {
       width: 100%;
       label {
         display: block;
       }
       input {
-        margin-top: 10px;
+        margin-top: $sSpacing;
         width: 710px;
         height: 80px;
-        padding: 0 20px;
+        padding: 0 $nSpacing;
         font-size: 30px;
         border: 2px solid #bfbfbf;
+        -webkit-appearance: none;
       }
       input:focus {
         border: 2px solid #595959;
@@ -21,7 +24,7 @@
     }
     .form-bottom {
       width: 100%;
-      margin-top: 10px;
+      margin-top: $sSpacing;
 
       display: flex;
       justify-content: center;
@@ -30,22 +33,80 @@
         width: 710px;
         height: 80px;
         font-size: 30px;
-        background-color: rgb(26, 188, 156);
+        background-color: #13c2c2;
         color: #fff;
-
         border: none;
+
+        transition: all 0.1s ease;
+      }
+      .u-button:active {
+        background-color: #08979c;
+        color: #fafafa;
       }
     }
   }
+  .m-filter {
+    margin-top: 40px;
+    .u-button {
+      width: 140px;
+      height: 72px;
+      font-size: 28px;
+      background-color: #e0e1e2;
+      color: rgba(0, 0, 0, 0.6);
+      border: none;
+
+      transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease,
+        box-shadow 0.1s ease, background 0.1s ease, -webkit-box-shadow 0.1s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .u-button:first-child {
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+    }
+    .u-button:last-child {
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+    .u-button:active {
+      background-color: #cacbcd;
+      color: rgba(0, 0, 0, 0.8);
+    }
+    .u-button-active {
+      background-color: #cacbcd;
+      color: rgba(0, 0, 0, 0.8);
+    }
+  }
   .c-todo-item {
+    margin-top: 20px;
     h2 {
-      margin-bottom: 20px;
+      margin-bottom: $nSpacing;
       font-weight: 700;
       font-size: 40px;
     }
-    .li-item {
-      margin-top: 10px;
-      font-size: 30px;
+    .ul-container {
+      .li-item {
+        margin-top: $sSpacing;
+        height: 40px;
+        font-size: 30px;
+
+        display: flex;
+        align-items: center;
+
+        input {
+          height: 30px;
+          width: 30px;
+          margin-right: $nSpacing;
+        }
+        .u-text {
+          line-height: 40px;
+        }
+        .u-text-done {
+          text-decoration: line-through;
+        }
+      }
+      .li-none {
+        font-style: italic;
+      }
     }
   }
 }
