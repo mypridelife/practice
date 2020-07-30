@@ -49,6 +49,8 @@ class TodoList extends Component {
     })
   }
   filterItems() {
+    console.log("filterItems")
+
     let temp
     if (this.state.filter === "done") {
       temp = this.state.items.filter((item) => {
