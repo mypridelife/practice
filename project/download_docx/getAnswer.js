@@ -1,7 +1,7 @@
-var fs = require('fs')
-var path = require('path')
-var XLSX = require('xlsx')
-var axios = require('axios')
+var fs = require("fs")
+var path = require("path")
+var XLSX = require("xlsx")
+var axios = require("axios")
 
 let total = 0
 
@@ -10,7 +10,7 @@ let total = 0
  * dir: 文件夹名称
  * getFileArr: 获取路径数组
  */
-const dirpath = path.join(__dirname, './xlsx/question')
+const dirpath = path.join(__dirname, "./xlsx/question")
 
 function getFileArr(directory) {
   let arr = []
@@ -27,7 +27,7 @@ const wenjianArr = getFileArr(dirpath)
  * 读取excle
  */
 function readerData(rawFile) {
-  let workbook = XLSX.readFileSync(rawFile, { type: 'base64' })
+  let workbook = XLSX.readFileSync(rawFile, { type: "base64" })
 
   let firstSheetName = workbook.SheetNames[0]
   let worksheet = workbook.Sheets[firstSheetName]
@@ -45,10 +45,10 @@ function readWenjian(wenjian) {
     let finalJsonArr = []
     let { originJsonArr, workbook } = readerData(wenjian)
     for (let index2 = 0; index2 < originJsonArr.length; index2++) {
-      let question = originJsonArr[index2]['题目']
+      let question = originJsonArr[index2]["题目"]
 
       //题目重复
-      let isAlive2 = finalJsonArr.some((x) => x['题目'] === question)
+      let isAlive2 = finalJsonArr.some((x) => x["题目"] === question)
       if (isAlive2) continue
 
       setTimeout(
@@ -66,43 +66,43 @@ function readWenjian(wenjian) {
               // })
 
               const result = await axios({
-                method: 'POST',
-                url: 'https://app.51xuexiaoyi.com/api/v1/searchQuestion',
+                method: "POST",
+                url: "https://app.51xuexiaoyi.com/api/v1/searchQuestion",
                 headers: {
-                  'Content-type': 'application/json',
-                  device: '123123',
-                  platform: 'ios',
-                  'app-version': 'null',
-                  token: 'dcjib8HVHPaAkWoSRivMObVanMGYsA4metQhwdKN5x0hD00WoBjYmAKq2DE0',
+                  "Content-type": "application/json",
+                  device: "123123",
+                  platform: "ios",
+                  "app-version": "null",
+                  token: "dcjib8HVHPaAkWoSRivMObVanMGYsA4metQhwdKN5x0hD00WoBjYmAKq2DE0",
                 },
                 data: { keyword: question },
               })
               if (result.data.code === 200) {
-                console.log('question', question)
-                originJsonArr[index2]['答案'] = result.data.data[0].a
+                console.log("question", question)
+                originJsonArr[index2]["答案"] = result.data.data[0].a
               }
               //存放到新数组中,序号改变
               let item = {
                 题号: finalJsonArr.length + 1,
-                课程ID: originJsonArr[index2]['课程ID'],
-                题型: originJsonArr[index2]['题型'],
-                题目: originJsonArr[index2]['题目'],
-                答案: originJsonArr[index2]['答案'],
+                课程ID: originJsonArr[index2]["课程ID"],
+                题型: originJsonArr[index2]["题型"],
+                题目: originJsonArr[index2]["题目"],
+                答案: originJsonArr[index2]["答案"],
               }
               finalJsonArr.push(item)
               total += 1
               if (result.data.data) {
                 for (let index3 = 0; index3 < result.data.data.length; index3++) {
                   let element = result.data.data[index3]
-                  let isAlive = finalJsonArr.some((x) => x['题目'] === element.q)
+                  let isAlive = finalJsonArr.some((x) => x["题目"] === element.q)
                   if (isAlive) {
-                    console.log('alive', element.q)
+                    console.log("alive", element.q)
                   } else {
-                    console.log('not alive', element.q)
+                    console.log("not alive", element.q)
                     let ele = {
                       题号: finalJsonArr.length + 1,
-                      课程ID: originJsonArr[index2]['课程ID'],
-                      题型: originJsonArr[index2]['题型'],
+                      课程ID: originJsonArr[index2]["课程ID"],
+                      题型: originJsonArr[index2]["题型"],
                       题目: element.q,
                       答案: element.a,
                     }
@@ -115,7 +115,7 @@ function readWenjian(wenjian) {
               console.log(error)
             } finally {
               if (index2 >= originJsonArr.length - 1) {
-                console.log('++++++++++++++++++++++++++++')
+                console.log("++++++++++++++++++++++++++++")
                 resolve({ finalJsonArr, wenjian, workbook })
               }
             }
@@ -125,10 +125,10 @@ function readWenjian(wenjian) {
       )
     }
   })
-}       123123
+}
 //json -> excle
 function generateXlsx(finalJson, output, workbook) {
-  console.log('--------------------------')
+  console.log("--------------------------")
   let wb = XLSX.utils.json_to_sheet(finalJson)
   workbook.Sheets[workbook.SheetNames[0]] = wb
   XLSX.writeFile(workbook, output)
@@ -139,11 +139,11 @@ async function readWenjianArr(wenjianArr) {
   for (let index = 0; index < wenjianArr.length; index++) {
     const wenjianItem = wenjianArr[index]
     let { finalJsonArr, wenjian, workbook } = await readWenjian(wenjianItem)
-    console.log('===========================')
-    let wenjianNew = wenjian.replace('question', 'answer')
+    console.log("===========================")
+    let wenjianNew = wenjian.replace("question", "answer")
     generateXlsx(finalJsonArr, wenjianNew, workbook)
   }
-  console.log('-----------====================-------------------', total)
+  console.log("-----------====================-------------------", total)
 }
 
 function main() {

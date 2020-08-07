@@ -1,0 +1,14 @@
+{
+  "name": "download_docx",
+  "version": "1.0.0",
+  "description": "",
+  "main": "1.js",
+  "dependencies": {
+    "crawler": "^1.2.2",
+    "xlsx": "^0.16.2"
+  },
+  "devDependencies": {},
+  "scripts": {},
+  "author": "",
+  "license": "ISC"
+}
