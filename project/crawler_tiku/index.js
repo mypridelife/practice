@@ -162,11 +162,12 @@ function main(start, total) {
   })
 }
 
-let start = 388906
+// 未开始
+let start = 386906
 const total = 100
 async function run() {
   const startTime = new Date()
-  for (let index = start; index > 387906; index -= total) {
+  for (let index = start; index > 385906; index -= total) {
     await main(index, total)
   }
   const endTime = new Date()
