@@ -5,10 +5,10 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Chrome",
+      "name": "Edge",
       "type": "edge",
       "request": "launch",
-      "url": "http://localhost:3000",
+      "url": "http://localhost:4397",
       "webRoot": "${workspaceFolder}/practice/react/react-tutorial/src",
       "sourceMapPathOverrides": {
         "webpack:///src/*": "${webRoot}/*"

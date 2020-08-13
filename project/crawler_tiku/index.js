@@ -133,12 +133,8 @@ function generateXlsx(json, output, workbook) {
 function main(start, total) {
   return new Promise(async (resolve, reject) => {
     const startTime = new Date()
-    let xlsxPath = `D://workspace//github//practice//project//crawler_tiku//${start}_${
-      start - total + 1
-    }.xlsx`
-    let wrongFile = `D://workspace//github//practice//project//crawler_tiku//${start}_${
-      start - total + 1
-    }_wrong.txt`
+    let xlsxPath = `D://gyh//note//files//temp//${start}_${start - total + 1}.xlsx`
+    let wrongFile = `D://gyh//note//files//temp//${start}_${start - total + 1}_wrong.txt`
     if (!fs.existsSync(xlsxPath)) {
       fs.writeFileSync(xlsxPath, "")
       console.log("文件夹创建成功")
@@ -163,11 +159,11 @@ function main(start, total) {
 }
 
 // 未开始
-let start = 370906
+let start = 360906
 const total = 100
 async function run() {
   const startTime = new Date()
-  for (let index = start; index > 360906; index -= total) {
+  for (let index = start; index > 350906; index -= total) {
     await main(index, total)
   }
   const endTime = new Date()
