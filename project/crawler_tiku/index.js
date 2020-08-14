@@ -159,11 +159,11 @@ function main(start, total) {
 }
 
 // 未开始
-let start = 360906
+let start = 341406
 const total = 100
 async function run() {
   const startTime = new Date()
-  for (let index = start; index > 350906; index -= total) {
+  for (let index = start; index > 320906; index -= total) {
     await main(index, total)
   }
   const endTime = new Date()
