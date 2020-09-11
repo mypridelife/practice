@@ -54,9 +54,36 @@ export default {
   created() {},
   mounted() {},
   methods: {
+    foo1() {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve('hello')
+        }, 2000)
+      })
+    },
+
     handleGetValue() {
-      console.log(this.fatherInputValue)
-      console.log(this.formData)
+      this.foo1()
+        .then(result => {
+          console.log(result)
+          try {
+            throw new Error('cao')
+          } catch (error) {
+            console.log('error', error)
+          }
+          if (result === 'hello') {
+            this.$router.push({
+              name: 'hookstest'
+            })
+            return
+          }
+          console.log('then')
+          console.log('fatherInputValue', this.fatherInputValue)
+          console.log('formData', this.formData)
+        })
+        .catch(err => {
+          console.log('err')
+        })
     }
   },
   provide() {
