@@ -29,7 +29,6 @@
 import FinctionalTest from './components/FinctionalTest'
 import FuncionalJsx from './components/FuncionalJsx'
 export default {
-  name: '',
   components: {
     FinctionalTest,
     FuncionalJsx

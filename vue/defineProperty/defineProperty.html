@@ -8,15 +8,16 @@
 <script type="text/javascript">
   var obj = {}
   Object.defineProperty(obj, 'txt', {
-    get: function() {
-      return obj
+    get: function (newValue) {
+      return newValue
     },
-    set: function(newValue) {
+    set: function (newValue) {
       document.getElementById('txt').value = newValue
       document.getElementById('show').innerHTML = newValue
-    }
+    },
   })
-  document.addEventListener('keyup', function(e) {
+  document.addEventListener('keyup', function (e) {
     obj.txt = e.target.value
+    console.log(' obj.txt', obj.txt)
   })
 </script>
