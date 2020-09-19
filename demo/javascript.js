@@ -56,13 +56,58 @@
 
 // console.log("slice", arr.slice(-10, -9))
 
-let arr = [1, 2, 3, 4]
-let arr1 = arr.map((item, index, array) => {
-  array.push(item)
-  console.log("item", item)
+// let arr = [1, 2, 3, 4]
+// let arr1 = arr.map((item, index, array) => {
+//   array.push(item)
+//   console.log("item", item)
 
-  return item + 1
-})
+//   return item + 1
+// })
 
-console.log("arr1", arr, arr.length)
-console.log("arr1", arr1, arr1.length)
+// console.log("arr1", arr, arr.length)
+// console.log("arr1", arr1, arr1.length)
+
+/**
+ * 函数声明
+ */
+// console.log("sum(1, 2)", sum(1, 2))
+
+// console.log("sum2(1, 2)", sum2)
+
+// function sum(v1, v2) {
+//   return v1 + v2
+// }
+
+// var sum2 = function (v1, v2) {
+//   return v1 + v2
+// }
+
+// let obj = {
+//   name: "hello",
+// }
+// let obj2 = obj
+// // obj2 = {
+// //   name: "world",
+// // }
+// // obj.name = "world"
+// obj2 = new Object()
+// console.log("obj", obj, obj2, obj === obj2)
+/**
+ * 原型
+ */
+function Person() {}
+// Person.prototype.name = "yh g"
+// Person.prototype.sayName = function () {
+//   console.log("name", this.name)
+// }
+
+Person.prototype = {
+  constructor: Person,
+  name: "yh g",
+  sayName: function () {
+    console.log("name", this.name)
+  },
+}
+var friend = new Person()
+friend.sayName()
+console.log(friend instanceof Person)
