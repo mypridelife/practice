@@ -95,19 +95,42 @@
 /**
  * 原型
  */
-function Person() {}
-// Person.prototype.name = "yh g"
-// Person.prototype.sayName = function () {
-//   console.log("name", this.name)
-// }
+// function Person() {}
+// // Person.prototype.name = "yh g"
+// // Person.prototype.sayName = function () {
+// //   console.log("name", this.name)
+// // }
 
-Person.prototype = {
-  constructor: Person,
-  name: "yh g",
-  sayName: function () {
-    console.log("name", this.name)
-  },
-}
-var friend = new Person()
-friend.sayName()
-console.log(friend instanceof Person)
+// Person.prototype = {
+//   constructor: Person,
+//   name: "yh g",
+//   sayName: function () {
+//     console.log("name", this.name)
+//   },
+// }
+// var friend = new Person()
+// friend.sayName()
+// console.log(friend instanceof Person)
+
+/**
+ * try-catch
+ */
+// try {
+//   throw new Error("凎")
+// } catch (error) {
+//   console.log("error", error.message)
+// }
+// function foo() {
+//   try {
+//     return 2
+//   } catch (error) {
+//   } finally {
+//     console.log("finally")
+//   }
+// }
+// console.log("foo", foo())
+// let body = document.body
+// console.log("body", body)
+// let s = document.createElement("script")
+// s.src = "www.guoyiheng.com"
+// body.appendChild(s)
