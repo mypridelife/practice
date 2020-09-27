@@ -1,7 +1,6 @@
 const Crawler = require("crawler")
 var fs = require("fs")
 var XLSX = require("xlsx")
-const { resolve } = require("path")
 
 function readerData(rawFile) {
   let workbook = XLSX.readFileSync(rawFile, { type: "base64" })
