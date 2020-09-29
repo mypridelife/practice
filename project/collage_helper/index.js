@@ -97,3 +97,4 @@ require("./getBookList")
   }
   console.log("===end get books===")
 })()
+require("./getTotalQuestions")
