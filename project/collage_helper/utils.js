@@ -12,10 +12,6 @@ function checkExist(path) {
 function sleep(timeout) {
   return new Promise((resolve) => setTimeout(resolve, timeout))
 }
-/**
- * 获取所有json文件中题目数量
- */
-//TODO 获取所有json文件中题目数量
 
 module.exports = {
   checkExist,

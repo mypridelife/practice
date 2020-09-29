@@ -1,8 +1,6 @@
 var fs = require("fs")
 var axios = require("axios")
 var path = require("path")
-const currentBookName = "英语"
-var currentBookList = require(`./books/${currentBookName}.json`)
 var getUserAccount = require("./getUserAccount")
 var _ = require("./utils")
 
@@ -49,36 +47,53 @@ async function getBookDetailsByBookId(book) {
   }
 }
 
+//先走getBookList.js文件
+require("./getBookList")
 ;(async function main() {
-  const bookList = currentBookList
-  while (!isUserEnd) {
-    for (let index = 0; index < bookList.length; index++) {
-      if (currentUserIndex < userAccountList.length) {
-        userId = userAccountList[currentUserIndex].userId
-        yun = userAccountList[currentUserIndex].yun
-      } else {
-        console.log("***账号已用尽***")
-        isUserEnd = true
-        break
+  console.log("+++begin get books+++")
+  //获取要跑的book
+  const files = fs.readdirSync("./books")
+  console.log("files", files)
+
+  for (let i = 0; i < files.length; i++) {
+    let originBookName = files[i]
+    const currentBookName = originBookName.substring(0, originBookName.length - 5)
+    console.log("currentBookName", currentBookName)
+
+    const currentBookList = require(`./books/${currentBookName}`)
+
+    //main函数
+    const bookList = currentBookList
+    while (!isUserEnd) {
+      for (let index = 0; index < bookList.length; index++) {
+        if (currentUserIndex < userAccountList.length) {
+          userId = userAccountList[currentUserIndex].userId
+          yun = userAccountList[currentUserIndex].yun
+        } else {
+          console.log("***账号已用尽***")
+          isUserEnd = true
+          break
+        }
+        const item2 = bookList[index]
+        let name = item2.name ? item2.name : "未知名称"
+        const currentDir = path.join(__dirname, `./bookDetails/${currentBookName}`)
+        if (_.checkExist(`${currentDir}/${name}.json`)) {
+          console.log(name, "---已存在，跳过---")
+          continue
+        }
+        //获取每一个 bookId 的详情
+        console.log(`+++开始获取${item2.name}的详情+++`)
+        const bookDetails = await getBookDetailsByBookId(item2)
+        //将列表写入文件
+        if (bookDetails.hasOwnProperty("questions")) {
+          fs.writeFileSync(`${currentDir}/${name}.json`, JSON.stringify(bookDetails))
+        } else {
+          // fs.writeFileSync(`${currentDir}/error_${name}.json`, {})
+          console.log(`***下标${currentUserIndex - 1}账号已结束***`)
+        }
+        console.log(`===获取${item2.name}的详情结束===`)
       }
-      const item2 = bookList[index]
-      let name = item2.name ? item2.name : "未知名称"
-      const currentDir = path.join(__dirname, `./bookDetails/${currentBookName}`)
-      if (_.checkExist(`${currentDir}/${name}.json`)) {
-        console.log(name, "---已存在，跳过---")
-        continue
-      }
-      //获取每一个 bookId 的详情
-      console.log(`+++开始获取${item2.name}的详情+++`)
-      const bookDetails = await getBookDetailsByBookId(item2)
-      //将列表写入文件
-      if (bookDetails.hasOwnProperty("questions")) {
-        fs.writeFileSync(`${currentDir}/${name}.json`, JSON.stringify(bookDetails))
-      } else {
-        // fs.writeFileSync(`${currentDir}/error_${name}.json`, {})
-        console.log(`***下标${currentUserIndex - 1}账号已结束***`)
-      }
-      console.log(`===获取${item2.name}的详情结束===`)
     }
   }
+  console.log("===end get books===")
 })()

@@ -71,7 +71,7 @@ async function getAllBook(keyWord) {
 
 ;(async function main() {
   const keyWordList = getKeywordList()
-  console.log("keyWordList", keyWordList)
+  console.log("+++begin get keyword list+++")
   for (let index = 0; index < keyWordList.length; index++) {
     const item = keyWordList[index]
     if (_.checkExist(path.join(__dirname, `./books/${item}.json`))) {
@@ -90,4 +90,5 @@ async function getAllBook(keyWord) {
     }
     console.log(`===获取${item}的bookList结束===，共${bookList.length}条数据`)
   }
+  console.log("===end get keyword list===")
 })()
