@@ -134,3 +134,46 @@
 // let s = document.createElement("script")
 // s.src = "www.guoyiheng.com"
 // body.appendChild(s)
+
+// log
+// for (var index = 0; index < 5; index++) {
+//   setTimeout(
+//     (function (index) {
+//       return function () {
+//         console.log("index", index)
+//       }
+//     })(index),
+//     1000 * index
+//   )
+// }
+
+/**
+ * 节流
+ */
+// function throttle(method, context) {
+//   clearTimeout(method.tId)
+//   method.tId = setTimeout(() => {
+//     method.call(context)
+//   }, 100)
+// }
+
+// function resizeDIv() {
+//   console.log("resizeDIv")
+//   var div = document.getElementById("myDiv")
+//   console.log("div", div.offsetWidth)
+
+//   div.style.height = div.offsetWidth + "px"
+// }
+// window.onresize = function () {
+//   throttle(resizeDIv)
+// }
+
+//拖放
+// var myDiv = document.querySelector("#myDiv")
+// console.log("myDiv", myDiv)
+
+// document.addEventListener("mousemove", function (event) {
+//   console.log("+++", event)
+//   myDiv.style.left = event.clientX + "px"
+//   myDiv.style.top = event.clientY + "px"
+// })
