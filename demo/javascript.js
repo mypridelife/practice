@@ -177,3 +177,8 @@
 //   myDiv.style.left = event.clientX + "px"
 //   myDiv.style.top = event.clientY + "px"
 // })
+// 可选链?.
+// let obj = {
+//   name: "hhh",
+// }
+// console.log("name", obj.info?.sex)

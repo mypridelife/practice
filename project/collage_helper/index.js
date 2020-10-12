@@ -75,9 +75,14 @@ require("./getBookList")
       }
       const item2 = bookList[index]
       let name = item2.name ? item2.name : "未知名称"
+      let bookId = item2.bookId ? item2.bookId : "未知名称"
       const currentDir = path.join(__dirname, `./bookDetails/${currentBookName}`)
       if (_.checkExist(`${currentDir}/${name}.json`)) {
         console.log(name, "---已存在，跳过---")
+        continue
+      }
+      if (_.checkExist(`${currentDir}/${bookId}.json`)) {
+        console.log(name, "---已存在bookId的命名文件，跳过---")
         continue
       }
       //获取每一个 bookId 的详情
@@ -85,7 +90,11 @@ require("./getBookList")
       const bookDetails = await getBookDetailsByBookId(item2)
       //将列表写入文件
       if (bookDetails.hasOwnProperty("questions")) {
-        fs.writeFileSync(`${currentDir}/${name}.json`, JSON.stringify(bookDetails))
+        try {
+          fs.writeFileSync(`${currentDir}/${name}.json`, JSON.stringify(bookDetails))
+        } catch (error) {
+          fs.writeFileSync(`${currentDir}/${bookId}.json`, JSON.stringify(bookDetails))
+        }
       } else {
         // fs.writeFileSync(`${currentDir}/error_${name}.json`, {})
         console.log(`***下标${currentUserIndex - 1}账号已结束***`)
