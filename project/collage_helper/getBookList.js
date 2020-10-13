@@ -7,8 +7,8 @@ var _ = require("./utils")
  * 抓取热门keyword
  */
 function getKeywordList() {
-  return "英语，数学，物理，化学，电路，计算机".split("，")
-  //   return "有机化学".split("，")
+  //   return "英语，数学，物理，化学，电路，计算机".split("，")
+  return "超星，尔雅，学习通，智慧树，知到，中国大学，mooc".split("，")
 }
 /**
  * 通过keyword获取书籍列表bookList
@@ -18,8 +18,8 @@ function getKeywordList() {
  */
 async function getBookListByKeyword(page, keyword) {
   const params = {
-    userId: "odryC1ZZiEE8ZWq8_GQv2C41-HWI",
-    yun: "LXdwB8J4exUh9glDPne1USW12BCml7f8zWzygqMk6nHg3D",
+    userId: "odryC1aXSAAJP10lmpl56ucJEc-k",
+    yun: "hTxBUq0HADXaTZCJA5rjQ4cQHprfqeM6KwMdLlpoZ543D",
     cateId: "netclass",
     keyword: keyword,
     schoolId: "",
