@@ -22,15 +22,15 @@ function getAllBookDetails(path) {
 // totalLength = getAllFiles("./bookDetails/英语")
 // console.log("totalLength", totalLength)
 ;(function main() {
-  let totalLength = 0
-  const dirArr = fs.readdirSync("./bookDetails")
-  console.log("dirArr", dirArr)
+  //   const dirArr = fs.readdirSync("./bookDetails")
+  //   console.log("dirArr", dirArr)
 
-  for (let i = 0; i < dirArr.length; i++) {
-    let dir = dirArr[i]
-    const currentFileTotal = getAllBookDetails(`./bookDetails/${dir}`)
-    console.log("---", dir + currentFileTotal, "---")
-    totalLength += currentFileTotal
-  }
+  //   for (let i = 0; i < dirArr.length; i++) {
+  //     let dir = dirArr[i]
+  //     const currentFileTotal = getAllBookDetails(`./bookDetails/${dir}`)
+  //     console.log("---", dir + currentFileTotal, "---")
+  //     totalLength += currentFileTotal
+  //   }
+  const totalLength = getAllBookDetails(`./bookDetails`)
   console.log("===总共", totalLength, "条数据===")
 })()

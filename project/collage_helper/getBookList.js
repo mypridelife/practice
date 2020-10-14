@@ -2,6 +2,13 @@ var fs = require("fs")
 var axios = require("axios")
 var path = require("path")
 var _ = require("./utils")
+var getUserAccount = require("./getUserAccount")
+
+let currentUserIndex = 0,
+  userId,
+  yun,
+  isUserEnd = false
+const userAccountList = getUserAccount()
 
 /**
  * 抓取热门keyword
@@ -18,8 +25,8 @@ function getKeywordList() {
  */
 async function getBookListByKeyword(page, keyword) {
   const params = {
-    userId: "odryC1aXSAAJP10lmpl56ucJEc-k",
-    yun: "hTxBUq0HADXaTZCJA5rjQ4cQHprfqeM6KwMdLlpoZ543D",
+    userId: userId,
+    yun: yun,
     cateId: "netclass",
     keyword: keyword,
     schoolId: "",
@@ -37,7 +44,6 @@ async function getBookListByKeyword(page, keyword) {
     })
     if (result.data.status.status_code === 0) {
       const originData = result.data.result.bookList
-      //   console.log("getBookListByKeyword", originData)
       if (originData.length === 0) {
         return "isEnd"
       } else {
@@ -45,8 +51,8 @@ async function getBookListByKeyword(page, keyword) {
       }
     } else {
       console.log("request error", result.data.status.status_reason)
+      return "error"
     }
-    return []
   } catch (error) {
     console.log("getBookListByKeyword error", error)
   }
@@ -57,10 +63,23 @@ async function getAllBook(keyWord) {
   let isEnd = false,
     i = 0
   while (!isEnd) {
+    if (currentUserIndex < userAccountList.length) {
+      userId = userAccountList[currentUserIndex].userId
+      yun = userAccountList[currentUserIndex].yun
+    } else {
+      console.log("***账号已用尽***")
+      isUserEnd = true
+      isEnd = true
+      console.log("账号已用尽bookList", bookList)
+    }
     console.log(`第${i}页`)
     const result = await getBookListByKeyword(i, keyWord)
     if (result === "isEnd") {
       isEnd = true
+    } else if (result === "error") {
+      console.log("---出错---")
+      //切账号
+      currentUserIndex += 1
     } else {
       bookList = bookList.concat(result)
       i += 1
@@ -84,10 +103,10 @@ async function getAllBook(keyWord) {
     //将列表写入文件
     fs.writeFileSync(path.join(__dirname, `./books/${item}.json`), JSON.stringify(bookList))
     //顺便创建一个book的文件夹在details中
-    if (!_.checkExist(path.join(__dirname, `./bookDetails/${item}`))) {
-      fs.mkdirSync(path.join(__dirname, `./bookDetails/${item}`))
-      console.log(item, "文件夹创建成功")
-    }
+    // if (!_.checkExist(path.join(__dirname, `./bookDetails/${item}`))) {
+    //   fs.mkdirSync(path.join(__dirname, `./bookDetails/${item}`))
+    //   console.log(item, "文件夹创建成功")
+    // }
     console.log(`===获取${item}的bookList结束===，共${bookList.length}条数据`)
   }
   console.log("===end get keyword list===")

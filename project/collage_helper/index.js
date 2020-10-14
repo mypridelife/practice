@@ -76,12 +76,17 @@ require("./getBookList")
       const item2 = bookList[index]
       let name = item2.name ? item2.name : "未知名称"
       let bookId = item2.bookId ? item2.bookId : "未知名称"
-      const currentDir = path.join(__dirname, `./bookDetails/${currentBookName}`)
-      if (_.checkExist(`${currentDir}/${name}.json`)) {
-        console.log(name, "---已存在，跳过---")
-        continue
-      }
-      if (_.checkExist(`${currentDir}/${bookId}.json`)) {
+      //   const currentDir = path.join(__dirname, `./bookDetails/${currentBookName}`)
+      const bookDetailsDir = path.join(__dirname, `./bookDetails`)
+      //   if (_.checkExist(`${currentDir}/${name}.json`)) {
+      //     console.log(name, "---已存在，跳过---")
+      //     continue
+      //   }
+      //   if (_.checkExist(`${currentDir}/${bookId}.json`)) {
+      //     console.log(name, "---已存在bookId的命名文件，跳过---")
+      //     continue
+      //   }
+      if (_.checkExist(`${bookDetailsDir}/${bookId}.json`)) {
         console.log(name, "---已存在bookId的命名文件，跳过---")
         continue
       }
@@ -91,9 +96,9 @@ require("./getBookList")
       //将列表写入文件
       if (bookDetails.hasOwnProperty("questions")) {
         try {
-          fs.writeFileSync(`${currentDir}/${name}.json`, JSON.stringify(bookDetails))
+          fs.writeFileSync(`${bookDetailsDir}/${bookId}.json`, JSON.stringify(bookDetails))
         } catch (error) {
-          fs.writeFileSync(`${currentDir}/${bookId}.json`, JSON.stringify(bookDetails))
+          console.log("---写入bookDetails文件失败---")
         }
       } else {
         // fs.writeFileSync(`${currentDir}/error_${name}.json`, {})
