@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="initial-scale=1, viewport-fit=cover" />
     <title>Document</title>
   </head>
   <style>
@@ -37,10 +37,21 @@
       font-size: 1em; /* 1em = 16px */
       width: 1000px;
     }
+    .div3 {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+
+      width: 100%;
+      height: 50px;
+      background-color: violet;
+
+      padding-bottom: env(safe-area-inset-bottom);
+    }
   </style>
   <body>
-    <!-- <div id="myDiv"></div> -->
-    <div class="div1">h1h1h1我是h1</div>
+    <div id="myDiv"></div>
+    <div class="div1">h1h1h1我是h2</div>
     <div class="div2">ppp我是ppp</div>
     <div class="div3">ppp我是ppp</div>
     <script src="./javascript.js"></script>

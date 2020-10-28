@@ -182,3 +182,55 @@
 //   name: "hhh",
 // }
 // console.log("name", obj.info?.sex)
+
+function Person(name) {
+  this.name = name
+}
+Person.prototype.sayName = function () {
+  console.log("hello", this.name)
+}
+
+// let p = new Person("gyh")
+// p.sayName()
+// console.log("Person", Person.prototype.constructor)
+
+// // console.log("p", p.__proto__ === Person.prototype)
+
+function Teacher(age) {
+  this.age = age
+}
+// Teacher.prototype = Object.create(Person.prototype)
+Teacher.prototype.__proto__ = Person.prototype
+Teacher.prototype.constructor = Teacher
+// Teacher.prototype.sayAge = function () {
+//   console.log("my age is ", this.age)
+// }
+
+let t = new Teacher("gyh", "18")
+// t.sayAge()
+// t.sayName()
+
+// console.log("p", p)
+process.on("uncaughtException", function (err) {
+  /*
+  console.error may not exist in some version of node
+  https://github.com/nodejs/node/issues/4467
+  */
+
+  //   if (typeof console.error === "function") {
+  //     console.error((err || "").toString())
+  //     console.error(err.stack || "")
+  //   } else {
+  //     console.log((err || "").toString())
+  //     console.log(err.stack || "")
+  //   }
+  console.log("fuck")
+})
+console.log("t", t?.age)
+
+// for (const key in t) {
+//   console.log("keyt", key)
+//   if (t.hasOwnProperty(key)) {
+//     console.log("keys", key)
+//   }
+// }
