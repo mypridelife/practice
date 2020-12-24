@@ -1,0 +1,440 @@
+{
+  "chavy_boxjs_userCfgs": {
+    "favapps": [],
+    "appsubs": [
+      {
+        "d": "ec8cf574-6a90-4f7d-b0cc-cc87f9a10f6d",
+        "url": "https://raw.githubusercontent.com/hootigger/scripts/main/hootigger.box.json",
+        "enable": true
+      }
+    ],
+    "isPinedSearchBar": true,
+    "httpapi": "examplekey@127.0.0.1:6166",
+    "sysapppanel": 0,
+    "isWallpaperMode": false,
+    "isTransparentIcons": false,
+    "httpapis": "",
+    "httpapi_timeout": "20",
+    "bgimgs": "无,\n跟随系统,跟随系统\nlight,http://api.btstu.cn/sjbz/zsy.php\ndark,https://uploadbeta.com/api/pictures/random\n妹子,http://api.btstu.cn/sjbz/zsy.php",
+    "bgimg": "",
+    "color_light_primary": "#F7BB0E",
+    "color_dark_primary": "#2196F3",
+    "isHidedSearchBar": false,
+    "theme": "dark",
+    "name": "FLJ小仙女",
+    "icon": "https://raw.githubusercontent.com/mypridelife/qx-config/main/qx_headerImg_dva.jpg",
+    "subapppanel": [0]
+  },
+  "chavy_boxjs_sessions": [],
+  "chavy_boxjs_cur_sessions": {},
+  "chavy_boxjs_app_subCaches": {
+    "https://raw.githubusercontent.com/hootigger/scripts/main/hootigger.box.json": {
+      "id": "hootigger.app.sub",
+      "name": "@hootigger 收集应用订阅",
+      "author": "@hootigger",
+      "icon": "https://raw.githubusercontent.com/hootigger/scripts/main/icon/xiaoxin.png",
+      "repo": "https://github.com/hootigger/scripts",
+      "apps": [
+        {
+          "id": "youth",
+          "name": "中青看点",
+          "keys": ["youthheader_zq", "red_zq", "read_zq", "readtime_zq", "signt", "times", "opbox"],
+          "settings": [
+            {
+              "id": "youthheader_zq",
+              "name": "youthheader_zq",
+              "val": "",
+              "type": "textarea",
+              "autoGrow": false,
+              "rows": 4,
+              "desc": "请求Headers"
+            },
+            {
+              "id": "red_zq",
+              "name": "red_zq",
+              "val": "",
+              "type": "textarea",
+              "autoGrow": false,
+              "rows": 1,
+              "desc": "red_zq"
+            },
+            {
+              "id": "read_zq",
+              "name": "read_zq",
+              "val": "",
+              "type": "textarea",
+              "autoGrow": false,
+              "rows": 4,
+              "desc": "read_zq"
+            },
+            {
+              "id": "readtime_zq",
+              "name": "readtime_zq",
+              "val": "",
+              "type": "textarea",
+              "autoGrow": false,
+              "rows": 1,
+              "desc": "readtime_zq"
+            },
+            {
+              "id": "signt",
+              "name": "signt",
+              "val": "",
+              "type": "textarea",
+              "autoGrow": false,
+              "rows": 1,
+              "desc": "signt"
+            },
+            {
+              "id": "times",
+              "name": "times",
+              "val": "",
+              "type": "textarea",
+              "autoGrow": false,
+              "rows": 1,
+              "desc": "times"
+            },
+            {
+              "id": "opbox",
+              "name": "opbox",
+              "val": "",
+              "type": "textarea",
+              "autoGrow": false,
+              "rows": 1,
+              "desc": "opbox"
+            }
+          ],
+          "author": "@Sunert",
+          "repo": "https://github.com/Sunert/Scripts/blob/master/Task/youth.js",
+          "script": "https://raw.githubusercontent.com/Sunert/Scripts/master/Task/youth.js",
+          "icons": [
+            "https://raw.githubusercontent.com/Orz-3/mini/master/youth.png",
+            "https://raw.githubusercontent.com/Orz-3/task/master/youth.png"
+          ]
+        },
+        {
+          "id": "sy_youth_read",
+          "name": "中青自动阅读",
+          "keys": ["zqgetbody_body", "zqgetbody_body1"],
+          "settings": [
+            {
+              "id": "zqgetbody_body",
+              "name": "请求body",
+              "val": "",
+              "type": "textarea",
+              "autoGrow": false,
+              "rows": 8,
+              "desc": "阅读文章和看视频，倒计时转一圈显示青豆到账即可，多看几篇文章和视频，获得更多包数据"
+            },
+            {
+              "id": "zqgetbody_body1",
+              "name": "请求body1",
+              "val": "",
+              "type": "textarea",
+              "autoGrow": false,
+              "rows": 8,
+              "desc": "阅读文章和看视频，倒计时转一圈显示青豆到账即可，多看几篇文章和视频，获得更多包数据"
+            },
+            {
+              "id": "zqgetbody_body_index",
+              "name": "上次执行位置",
+              "val": "",
+              "type": "textarea",
+              "autoGrow": false,
+              "rows": 1,
+              "desc": "记录上次执行的位置，可以控制从第几个body开始执行"
+            },
+            {
+              "id": "zqgetbody_body_index1",
+              "name": "上次执行位置1",
+              "val": "",
+              "type": "textarea",
+              "autoGrow": false,
+              "rows": 1,
+              "desc": "记录上次执行的位置，可以控制从第几个body开始执行"
+            }
+          ],
+          "author": "@syzzzf",
+          "repo": "https://github.com/songyangzz/QuantumultX/blob/master/YOUTH_READ.js",
+          "script": "https://raw.githubusercontent.com/songyangzz/QuantumultX/master/YOUTH_READ.js",
+          "icons": [
+            "https://raw.githubusercontent.com/Orz-3/mini/master/youth.png",
+            "https://raw.githubusercontent.com/Orz-3/task/master/youth.png"
+          ]
+        },
+        {
+          "id": "QQReadSign",
+          "name": "QQ阅读APP",
+          "keys": ["checkinheader", "punchCardheader"],
+          "settings": [
+            {
+              "id": "checkinheader",
+              "name": "checkinheader",
+              "val": "",
+              "type": "textarea",
+              "autoGrow": false,
+              "rows": 8,
+              "desc": "签到headers"
+            },
+            {
+              "id": "punchCardheader",
+              "name": "punchCardheader",
+              "val": "",
+              "type": "textarea",
+              "autoGrow": false,
+              "rows": 8,
+              "desc": "视频headers"
+            }
+          ],
+          "author": "@DD-D1",
+          "repo": "https://github.com/DD-D1/2020scripts/blob/master/QQReadSign.js",
+          "script": "https://raw.githubusercontent.com/DD-D1/2020scripts/master/QQReadSign.js",
+          "icons": [
+            "https://raw.githubusercontent.com/hootigger/scripts/main/icon/js.png",
+            "https://raw.githubusercontent.com/hootigger/scripts/main/icon/js.png"
+          ]
+        },
+        {
+          "id": "qq_read",
+          "name": "企鹅阅读-多账号",
+          "keys": ["qqreadbd1", "qqreadtimeurl1", "qqreadtimehd1"],
+          "settings": [
+            {
+              "id": "qqreadbd1",
+              "name": "qqreadbd1",
+              "val": "",
+              "type": "textarea",
+              "autoGrow": false,
+              "rows": 4,
+              "desc": "阅读更新body1"
+            },
+            {
+              "id": "qqreadtimeurl1",
+              "name": "qqreadtimeurl1",
+              "val": "",
+              "type": "textarea",
+              "autoGrow": false,
+              "rows": 2,
+              "desc": "阅读时长url"
+            },
+            {
+              "id": "qqreadtimehd1",
+              "name": "qqreadtimehd1",
+              "val": "",
+              "type": "textarea",
+              "autoGrow": false,
+              "rows": 4,
+              "desc": "阅读时长cookie"
+            },
+            {
+              "id": "qqreadbd2",
+              "name": "qqreadbd2",
+              "val": "",
+              "type": "textarea",
+              "autoGrow": false,
+              "rows": 4,
+              "desc": "阅读更新body2"
+            },
+            {
+              "id": "qqreadtimeurl2",
+              "name": "qqreadtimeurl2",
+              "val": "",
+              "type": "textarea",
+              "autoGrow": false,
+              "rows": 2,
+              "desc": "阅读时长url2"
+            },
+            {
+              "id": "qqreadtimehd2",
+              "name": "qqreadtimehd2",
+              "val": "",
+              "type": "textarea",
+              "autoGrow": false,
+              "rows": 4,
+              "desc": "阅读时长cookie2"
+            },
+            {
+              "id": "qqreadbd3",
+              "name": "qqreadbd3",
+              "val": "",
+              "type": "textarea",
+              "autoGrow": false,
+              "rows": 4,
+              "desc": "阅读更新body3"
+            },
+            {
+              "id": "qqreadtimeurl3",
+              "name": "qqreadtimeurl3",
+              "val": "",
+              "type": "textarea",
+              "autoGrow": false,
+              "rows": 2,
+              "desc": "阅读时长url3"
+            },
+            {
+              "id": "qqreadtimehd3",
+              "name": "qqreadtimehd3",
+              "val": "",
+              "type": "textarea",
+              "autoGrow": false,
+              "rows": 4,
+              "desc": "阅读时长cookie3"
+            },
+            {
+              "id": "qqreadbd4",
+              "name": "qqreadbd4",
+              "val": "",
+              "type": "textarea",
+              "autoGrow": false,
+              "rows": 4,
+              "desc": "阅读更新body4"
+            },
+            {
+              "id": "qqreadtimeurl4",
+              "name": "qqreadtimeurl4",
+              "val": "",
+              "type": "textarea",
+              "autoGrow": false,
+              "rows": 2,
+              "desc": "阅读时长url4"
+            },
+            {
+              "id": "qqreadtimehd4",
+              "name": "qqreadtimehd4",
+              "val": "",
+              "type": "textarea",
+              "autoGrow": false,
+              "rows": 4,
+              "desc": "阅读时长cookie4"
+            }
+          ],
+          "author": "@ziye12",
+          "repo": "https://github.com/ziye12/JavaScript/blob/master/Task/qqreads.js",
+          "icons": [
+            "https://raw.githubusercontent.com/hootigger/scripts/main/icon/js.png",
+            "https://raw.githubusercontent.com/hootigger/scripts/main/icon/js.png"
+          ]
+        },
+        {
+          "id": "qq_read_ck",
+          "name": "企鹅读书-多账号CK",
+          "keys": [],
+          "settings": [
+            {
+              "id": "qqread_jbid",
+              "name": "qqread_jbid",
+              "val": "1",
+              "type": "textarea",
+              "autoGrow": false,
+              "rows": 1,
+              "desc": "企鹅读书,账号索引"
+            }
+          ],
+          "author": "@hootigger",
+          "repo": "https://github.com/ziye12/JavaScript/blob/master/Task/qqreads.js",
+          "icons": [
+            "https://raw.githubusercontent.com/hootigger/scripts/main/icon/js.png",
+            "https://raw.githubusercontent.com/hootigger/scripts/main/icon/js.png"
+          ]
+        },
+        {
+          "id": "xmly_ck",
+          "name": "喜马拉雅极速版Ck",
+          "keys": ["xmly_cookie1", "xmly_ua1", "xmly_cookie2", "xmly_ua2"],
+          "settings": [
+            {
+              "id": "xmly_del_cookie",
+              "name": "是否清除cookie",
+              "val": false,
+              "type": "boolean",
+              "desc": "删除喜马拉雅极速版多账号cookie数据"
+            },
+            {
+              "id": "xmly_cookie1",
+              "name": "账号1Cookie",
+              "val": "",
+              "type": "textarea",
+              "autoGrow": false,
+              "rows": 2,
+              "desc": "喜马拉雅极速版Cookie"
+            },
+            {
+              "id": "xmly_ua1",
+              "name": "账号1 UA",
+              "val": "",
+              "type": "textarea",
+              "autoGrow": false,
+              "rows": 2,
+              "desc": "喜马拉雅极速版UA"
+            },
+            {
+              "id": "xmly_cookie2",
+              "name": "账号2 Cookie",
+              "val": "",
+              "type": "textarea",
+              "autoGrow": false,
+              "rows": 2,
+              "desc": "喜马拉雅极速版Cookie"
+            },
+            {
+              "id": "xmly_ua2",
+              "name": "账号2 UA",
+              "val": "",
+              "type": "textarea",
+              "autoGrow": false,
+              "rows": 2,
+              "desc": "喜马拉雅极速版UA"
+            }
+          ],
+          "author": "@hootigger",
+          "repo": "https://github.com/hootigger/scripts/blob/main/scripts/xmly_ck.js",
+          "script": "https://raw.githubusercontent.com/hootigger/scripts/main/scripts/xmly_ck.js",
+          "icons": [
+            "https://raw.githubusercontent.com/hootigger/scripts/main/icon/js.png",
+            "https://raw.githubusercontent.com/hootigger/scripts/main/icon/js.png"
+          ]
+        }
+      ],
+      "updateTime": "2020-12-08T05:56:45.317Z"
+    }
+  },
+  "@chavy_boxjs_userCfgs.httpapi": "examplekey@127.0.0.1:6166",
+  "@chavy_boxjs_userCfgs.bgimg": "",
+  "@chavy_boxjs_userCfgs.color_dark_primary": "#2196F3",
+  "@chavy_boxjs_userCfgs.color_light_primary": "#F7BB0E",
+  "@chavy_boxjs_userCfgs.httpapis": "",
+  "@chavy_boxjs_userCfgs.httpapi_timeout": "20",
+  "@chavy_boxjs_userCfgs.bgimgs": "无,\n跟随系统,跟随系统\nlight,http://api.btstu.cn/sjbz/zsy.php\ndark,https://uploadbeta.com/api/pictures/random\n妹子,http://api.btstu.cn/sjbz/zsy.php",
+  "CFG_BoxSwitcher_isSilent": "",
+  "youthheader_zq": null,
+  "red_zq": null,
+  "read_zq": null,
+  "readtime_zq": null,
+  "signt": null,
+  "times": null,
+  "opbox": null,
+  "zqgetbody_body": null,
+  "zqgetbody_body1": null,
+  "zqgetbody_body_index": null,
+  "zqgetbody_body_index1": null,
+  "checkinheader": null,
+  "punchCardheader": null,
+  "qqreadbd1": "{\"common\":{\"appid\":1450024394,\"areaid\":5,\"qq_ver\":\"8.4.17\",\"os_ver\":\"iOS 14.2\",\"mp_ver\":\"0.31.0\",\"mpos_ver\":\"1.21.0\",\"brand\":\"iPhone\",\"model\":\"iPhone XR<iPhone11,8>\",\"screenWidth\":414,\"screenHeight\":896,\"windowWidth\":414,\"windowHeight\":813,\"openid\":\"DB3E60FFEB221F8B7D813A7D79105B15\",\"guid\":342166082,\"session\":\"1xzgj0i1mmy0jc6bbkpjxbkinuhm2l50\",\"scene\":1005,\"source\":-1,\"hasRedDot\":\"false\",\"missions\":-1,\"caseID\":-1},\"dataList\":[{\"click1\":\"bookDetail_bottomBar_read_C\",\"click2\":\"bookLib_freeBook_bookClick_C\",\"route\":\"pages/book-read/index\",\"refer\":\"pages/book-detail/index\",\"options\":{\"bid\":\"34417666\",\"cid\":\"1\"},\"dis\":1607407420414,\"ext6\":42,\"eventID\":\"bookRead_show_I\",\"type\":\"shown\",\"ccid\":1,\"bid\":\"34417666\",\"bookStatus\":0,\"bookPay\":0,\"chapterStatus\":0,\"ext1\":{\"font\":18,\"bg\":0,\"pageMode\":1},\"from\":\"bookLib_freeBook_bookClick_C_0_34417666\"}]}",
+  "qqreadtimeurl1": "https://mqqapi.reader.qq.com/mqq/addReadTimeWithBid?scene=1005&refer=pages%2Fnav-library%2Findex&bid=34417666&readTime=4334&read_type=0&conttype=1&read_status=0&chapter_info=%5B%7B%221%22%3A%7B%22readTime%22%3A4334%2C%22pay_status%22%3A0%7D%7D%5D&sp=-1",
+  "qqreadtimehd1": "{\"ywsession\":\"1xzgj0i1mmy0jc6bbkpjxbkinuhm2l50\",\"Cookie\":\"ywguid=342166082;ywkey=ywjA7lyeEYX8;platform=ios;channel=mqqmina;mpVersion=0.31.0;qq_ver=8.4.17;os_ver=iOS 14.2;mpos_ver=1.21.0;platform=ios;openid=DB3E60FFEB221F8B7D813A7D79105B15\",\"Connection\":\"keep-alive\",\"Content-Type\":\"application/json\",\"Accept\":\"*/*\",\"Host\":\"mqqapi.reader.qq.com\",\"User-Agent\":\"QQ/8.4.17.638 CFNetwork/1206 Darwin/20.1.0\",\"Referer\":\"https://appservice.qq.com/1110657249/0.31.0/page-frame.html\",\"Accept-Language\":\"zh-cn\",\"Accept-Encoding\":\"gzip, deflate, br\",\"mpversion\":\"0.31.0\"}",
+  "qqreadbd2": "{\"common\":{\"appid\":1450024394,\"areaid\":5,\"qq_ver\":\"8.4.17\",\"os_ver\":\"iOS 14.2\",\"mp_ver\":\"0.31.0\",\"mpos_ver\":\"1.21.0\",\"brand\":\"iPhone\",\"model\":\"iPhone XR<iPhone11,8>\",\"screenWidth\":414,\"screenHeight\":896,\"windowWidth\":414,\"windowHeight\":813,\"openid\":\"CCFB2A75FC1209FC91A9F9FBEA1C0A6C\",\"guid\":2124598132,\"session\":\"9smxqcq9w2izjtkqchgclk77y1wf9nmv\",\"scene\":1005,\"source\":-1,\"hasRedDot\":\"false\",\"missions\":-1,\"caseID\":-1},\"dataList\":[{\"click1\":\"bookDetail_bottomBar_read_C\",\"click2\":\"bookLib_freeBook_bookClick_C\",\"route\":\"pages/book-read/index\",\"refer\":\"pages/book-detail/index\",\"options\":{\"bid\":\"34417666\",\"cid\":\"1\"},\"dis\":1607407973654,\"ext6\":49,\"eventID\":\"bookRead_show_I\",\"type\":\"shown\",\"ccid\":1,\"bid\":\"34417666\",\"bookStatus\":0,\"bookPay\":0,\"chapterStatus\":0,\"ext1\":{\"font\":18,\"bg\":0,\"pageMode\":1},\"from\":\"bookLib_freeBook_bookClick_C_0_34417666\"}]}",
+  "qqreadtimeurl2": "https://mqqapi.reader.qq.com/mqq/addReadTimeWithBid?scene=1005&refer=pages%2Fnav-library%2Findex&bid=34417666&readTime=5468&read_type=0&conttype=1&read_status=0&chapter_info=%5B%7B%221%22%3A%7B%22readTime%22%3A5468%2C%22pay_status%22%3A0%7D%7D%5D&sp=-1",
+  "qqreadtimehd2": "{\"ywsession\":\"9smxqcq9w2izjtkqchgclk77y1wf9nmv\",\"Cookie\":\"ywguid=2124598132;ywkey=ywNVVEv5GSte;platform=ios;channel=mqqmina;mpVersion=0.31.0;qq_ver=8.4.17;os_ver=iOS 14.2;mpos_ver=1.21.0;platform=ios;openid=CCFB2A75FC1209FC91A9F9FBEA1C0A6C\",\"Connection\":\"keep-alive\",\"Content-Type\":\"application/json\",\"Accept\":\"*/*\",\"Host\":\"mqqapi.reader.qq.com\",\"User-Agent\":\"QQ/8.4.17.638 CFNetwork/1206 Darwin/20.1.0\",\"Referer\":\"https://appservice.qq.com/1110657249/0.31.0/page-frame.html\",\"Accept-Language\":\"zh-cn\",\"Accept-Encoding\":\"gzip, deflate, br\",\"mpversion\":\"0.31.0\"}",
+  "qqreadbd3": null,
+  "qqreadtimeurl3": null,
+  "qqreadtimehd3": null,
+  "qqreadbd4": null,
+  "qqreadtimeurl4": null,
+  "qqreadtimehd4": null,
+  "qqread_jbid": "2",
+  "xmly_cookie1": null,
+  "xmly_ua1": null,
+  "xmly_cookie2": null,
+  "xmly_ua2": null,
+  "xmly_del_cookie": null
+}

@@ -1,0 +1,278 @@
+{
+  "accessToken": "",
+  "datas": {
+    "currentTime": 1607482492737,
+    "classTeacherWechatNum": "Alysa_FZYY",
+    "meetStartTime": 1606878436720,
+    "classTitle": "翻转口语A班",
+    "classTeacherHeadPortrait": "https://alipub.binfenyingyu.com/file/jpg/ed1816021f377821d49946af198b86d1.jpg",
+    "meetTitle": "Jessie 12班-开班班会",
+    "meetNo": "TMS100002",
+    "classNo": "TFC10003",
+    "meetDesc": "Jessie 12班-开班班会",
+    "classTeacherName": "李莎莎",
+    "meetContentJson": [
+      {
+        "role": "老师",
+        "name": "翻转英语Annie老师",
+        "timeOffset": "0",
+        "headPortrait": "https://alipub.binfenyingyu.com/file/jpg/meet/dde30cb0099af33b77ff11f943cd448a.jpg",
+        "contentType": "text",
+        "content": "14天会员体验班班会进行中\n\n艾瑞巴蒂上午好呀~\n\n首先欢迎大家，我是你们的班主任Annie.\n\n因为大家都是刚进班级群，很多同学对平台不了解，也不熟悉怎么用APP学习，所以班班简单介绍一下翻转英语和如何操作学习哦~\n\n✅在这个过程中，请保持禁言状态哈~"
+      },
+      {
+        "role": "老师",
+        "name": "翻转英语Annie老师",
+        "timeOffset": "1",
+        "headPortrait": "https://alipub.binfenyingyu.com/file/jpg/meet/dde30cb0099af33b77ff11f943cd448a.jpg",
+        "contentType": "image",
+        "content": "https://alipub.binfenyingyu.com/file/png/meet/21fce24a4801f1ce249fc61d20f165e3.png"
+      },
+      {
+        "role": "老师",
+        "name": "翻转英语Annie老师",
+        "timeOffset": "2",
+        "headPortrait": "https://alipub.binfenyingyu.com/file/jpg/meet/dde30cb0099af33b77ff11f943cd448a.jpg",
+        "contentType": "text",
+        "content": "【1】平台介绍+教学理念"
+      },
+      {
+        "role": "老师",
+        "name": "翻转英语Annie老师",
+        "timeOffset": "4",
+        "headPortrait": "https://alipub.binfenyingyu.com/file/jpg/meet/dde30cb0099af33b77ff11f943cd448a.jpg",
+        "contentType": "text",
+        "content": "【1.1】平台简介\n\n翻转英语平台是由大陆唯一一位被英国皇家认证的语言学专家Hero蔡创办，旨在提升中国人的英语实用能力，其颠覆传统的英语学习方法已获超30万学员亲测有效。\n\n他所带领的教研团队，耗时10000小时倾力打造【翻转英语实用口语体系】，Hero老师也因此被英国皇家特许语言家协会追加授封为“院士”头衔。\n\nHero老师百度百科：https://baike.baidu.com/item/%E8%94%A1%E5%8B%87%E5%88%9A/24320433?fr=aladdin"
+      },
+      {
+        "role": "老师",
+        "name": "翻转英语Annie老师",
+        "timeOffset": "6",
+        "headPortrait": "https://alipub.binfenyingyu.com/file/jpg/meet/dde30cb0099af33b77ff11f943cd448a.jpg",
+        "contentType": "text",
+        "content": "【1.2】平台实力\n\n翻转英语团队目前已累计研发【英语音标】、【懒人英语】、【翻转英语】等数十款优秀英语学习app，常年占据各大应用市场热门app榜单。\n\n翻转英语（公司名：上海异构网络科技有限公司）也在2019年被评选为上海市高新技术企业，同时也获得腾讯回响中国“影响力外语培训机构”称号。"
+      },
+      {
+        "role": "老师",
+        "name": "翻转英语Annie老师",
+        "timeOffset": "7",
+        "headPortrait": "https://alipub.binfenyingyu.com/file/jpg/meet/dde30cb0099af33b77ff11f943cd448a.jpg",
+        "contentType": "image",
+        "content": "https://alipub.binfenyingyu.com/file/jpg/meet/f739e5f4a4c8837872183fb9119f8465.jpg"
+      },
+      {
+        "role": "老师",
+        "name": "翻转英语Annie老师",
+        "timeOffset": "9",
+        "headPortrait": "https://alipub.binfenyingyu.com/file/jpg/meet/dde30cb0099af33b77ff11f943cd448a.jpg",
+        "contentType": "text",
+        "content": "【1.3】教学理念\n\n常规教学理念：死记硬背+填鸭式教学→费时费脑\n\n翻转教学理念：音先于形+自然习得+母语转化→不费脑不死记硬背"
+      },
+      {
+        "role": "老师",
+        "name": "翻转英语Annie老师",
+        "timeOffset": "11",
+        "headPortrait": "https://alipub.binfenyingyu.com/file/jpg/meet/dde30cb0099af33b77ff11f943cd448a.jpg",
+        "contentType": "image",
+        "content": "https://alipub.binfenyingyu.com/file/png/meet/b1b8478cdce16777f2e17bf7c9281510.png"
+      },
+      {
+        "role": "老师",
+        "name": "翻转英语Annie老师",
+        "timeOffset": "13",
+        "headPortrait": "https://alipub.binfenyingyu.com/file/jpg/meet/dde30cb0099af33b77ff11f943cd448a.jpg",
+        "contentType": "text",
+        "content": "【2】课程要怎么进阶？可以达到什么等级呢？"
+      },
+      {
+        "role": "老师",
+        "name": "翻转英语Annie老师",
+        "timeOffset": "15",
+        "headPortrait": "https://alipub.binfenyingyu.com/file/jpg/meet/dde30cb0099af33b77ff11f943cd448a.jpg",
+        "contentType": "image",
+        "content": "https://alipub.binfenyingyu.com/file/jpg/meet/cc2733c2d934018da39237831838fe67.jpg"
+      },
+      {
+        "role": "老师",
+        "name": "翻转英语Annie老师",
+        "timeOffset": "28",
+        "headPortrait": "https://alipub.binfenyingyu.com/file/jpg/meet/dde30cb0099af33b77ff11f943cd448a.jpg",
+        "contentType": "audio",
+        "content": "https://alipub.binfenyingyu.com/file/m4a/meet/f41623a1ae68a5a95da4666de7384953.m4a"
+      },
+      {
+        "role": "老师",
+        "name": "翻转英语Annie老师",
+        "timeOffset": "30",
+        "headPortrait": "https://alipub.binfenyingyu.com/file/jpg/meet/dde30cb0099af33b77ff11f943cd448a.jpg",
+        "contentType": "text",
+        "content": "打开“音标”APP或者“懒人英语”APP，点左下方“学习”按钮，点右上角的“等级”，可以查看个人专属提升计划，一步一步进阶哦！"
+      },
+      {
+        "role": "老师",
+        "name": "翻转英语Annie老师",
+        "timeOffset": "32",
+        "headPortrait": "https://alipub.binfenyingyu.com/file/jpg/meet/dde30cb0099af33b77ff11f943cd448a.jpg",
+        "contentType": "image",
+        "content": "https://alipub.binfenyingyu.com/file/jpg/meet/dddda3033a6eb78382e5bf3b5901c866.jpg"
+      },
+      {
+        "role": "老师",
+        "name": "翻转英语Annie老师",
+        "timeOffset": "34",
+        "headPortrait": "https://alipub.binfenyingyu.com/file/jpg/meet/dde30cb0099af33b77ff11f943cd448a.jpg",
+        "contentType": "text",
+        "content": "3️. 如何找到课程\n\n【方法1】\n① 打开「英语音标APP」\n②点击底部「学习」/「课程」\n③ 找到【我的主修课】即可开始！\n\n——————————\n【方法2】\n① 打开「懒人英语APP」\n②点击底部「系统学」\n③ 找到【我的主修课】即可开始！\n\n另外定制课程还搭配辅修课程和兴趣课程哦~"
+      },
+      {
+        "role": "老师",
+        "name": "翻转英语Annie老师",
+        "timeOffset": "35",
+        "headPortrait": "https://alipub.binfenyingyu.com/file/jpg/meet/dde30cb0099af33b77ff11f943cd448a.jpg",
+        "contentType": "image",
+        "content": "https://alipub.binfenyingyu.com/file/jpg/meet/09c2b18c66bda549719f5afdf6dc7373.jpg"
+      },
+      {
+        "role": "老师",
+        "name": "翻转英语Annie老师",
+        "timeOffset": "37",
+        "headPortrait": "https://alipub.binfenyingyu.com/file/jpg/meet/dde30cb0099af33b77ff11f943cd448a.jpg",
+        "contentType": "text",
+        "content": "每个单元课程包含：\n\n预习热身\n视频课程/解析\n复习巩固\n单元测试等环节~"
+      },
+      {
+        "role": "老师",
+        "name": "翻转英语Annie老师",
+        "timeOffset": "48",
+        "headPortrait": "https://alipub.binfenyingyu.com/file/jpg/meet/dde30cb0099af33b77ff11f943cd448a.jpg",
+        "contentType": "audio",
+        "content": "https://alipub.binfenyingyu.com/file/m4a/meet/20443a24b84be99a2587204d7ec093f3.m4a"
+      },
+      {
+        "role": "老师",
+        "name": "翻转英语Annie老师",
+        "timeOffset": "50",
+        "headPortrait": "https://alipub.binfenyingyu.com/file/jpg/meet/dde30cb0099af33b77ff11f943cd448a.jpg",
+        "contentType": "image",
+        "content": "https://alipub.binfenyingyu.com/file/png/meet/66d742ce23dca5ad43fe158920d1a6b5.png"
+      },
+      {
+        "role": "老师",
+        "name": "翻转英语Annie老师",
+        "timeOffset": "52",
+        "headPortrait": "https://alipub.binfenyingyu.com/file/jpg/meet/dde30cb0099af33b77ff11f943cd448a.jpg",
+        "contentType": "text",
+        "content": "4️. 耐心重复跟读训练\n\n完成视频学习后进行跟读训练巩固课程，需认真听老师的示范（可重复听），再点“麦克风”录音频（可重复跟读训练），还可回放自己录制的音频\n\n跟读训练务必保持外部环境安静，录音咬字要清晰，声音洪亮，尽力模仿老师的发音哦！\n\n句子的跟读训练，“绿色”表示非常好，““红色”表示不及格，黑色”表示一般，需要加强！"
+      },
+      {
+        "role": "老师",
+        "name": "翻转英语Annie老师",
+        "timeOffset": "54",
+        "headPortrait": "https://alipub.binfenyingyu.com/file/jpg/meet/dde30cb0099af33b77ff11f943cd448a.jpg",
+        "contentType": "image",
+        "content": "https://alipub.binfenyingyu.com/file/jpg/meet/b6f6d23df65e32109eb75e42bd6f1681.jpg"
+      },
+      {
+        "role": "老师",
+        "name": "翻转英语Annie老师",
+        "timeOffset": "56",
+        "headPortrait": "https://alipub.binfenyingyu.com/file/jpg/meet/dde30cb0099af33b77ff11f943cd448a.jpg",
+        "contentType": "text",
+        "content": "5️.专属学习群\n\n咱们的学习群是【翻转英语】额外赠送的福利，定期组织活动和分享干货，进来的同学都是付费会员的同学，所以还请大家遵守群规，群内不要发广告，私加好友等，保持好的英语学习交流环境哦"
+      },
+      {
+        "role": "老师",
+        "name": "翻转英语Annie老师",
+        "timeOffset": "58",
+        "headPortrait": "https://alipub.binfenyingyu.com/file/jpg/meet/dde30cb0099af33b77ff11f943cd448a.jpg",
+        "contentType": "text",
+        "content": "6️.注意事项：\n\n课程是一步一步解锁的哦，一定是先完成前一个单元的学习，才可解锁下一单元"
+      },
+      {
+        "role": "老师",
+        "name": "翻转英语Annie老师",
+        "timeOffset": "60",
+        "headPortrait": "https://alipub.binfenyingyu.com/file/jpg/meet/dde30cb0099af33b77ff11f943cd448a.jpg",
+        "contentType": "audio",
+        "content": "https://alipub.binfenyingyu.com/file/m4a/meet/61d622bd5bec900a5c3b0dcd9dc93170.m4a"
+      },
+      {
+        "role": "老师",
+        "name": "翻转英语Annie老师",
+        "timeOffset": "72",
+        "headPortrait": "https://alipub.binfenyingyu.com/file/jpg/meet/dde30cb0099af33b77ff11f943cd448a.jpg",
+        "contentType": "text",
+        "content": "关于后续的课程学习，我们有年卡课程可以选择\n\n1年卡优惠减免之后，988报名，接着体验课程的学习记录继续学习\n\n2年卡优惠减免之后，1688报名，属于保障班，学不会可以再送一年"
+      },
+      {
+        "role": "老师",
+        "name": "翻转英语Annie老师",
+        "timeOffset": "74",
+        "headPortrait": "https://alipub.binfenyingyu.com/file/jpg/meet/dde30cb0099af33b77ff11f943cd448a.jpg",
+        "contentType": "audio",
+        "content": "https://alipub.binfenyingyu.com/file/m4a/meet/310d2193ed95541ef558a5847e615cfc.m4a"
+      },
+      {
+        "role": "老师",
+        "name": "翻转英语Annie老师",
+        "timeOffset": "85",
+        "headPortrait": "https://alipub.binfenyingyu.com/file/jpg/meet/dde30cb0099af33b77ff11f943cd448a.jpg",
+        "contentType": "audio",
+        "content": "https://alipub.binfenyingyu.com/file/m4a/meet/c0bae1badf3feb0950c09ae9a7e25caa.m4a"
+      },
+      {
+        "role": "老师",
+        "name": "翻转英语Annie老师",
+        "timeOffset": "92",
+        "headPortrait": "https://alipub.binfenyingyu.com/file/jpg/meet/dde30cb0099af33b77ff11f943cd448a.jpg",
+        "contentType": "text",
+        "content": "7️.下面来划重点!!!\n\n新同学须知:\n〖1〗进入【英语音标】【懒人英语】软件中进行学习~\n〖2〗学习随时可以保存退出，累计满20分钟系统自动跳出打卡界面，可分享到群内哦~\n〖3〗预告今天晚上20:00群内有【实时纠音活动】\n\n学习阶段每句话认真跟读复述，句子就能掌握好，后面检测就很容易拿高分啦\n\n如遇同一个课程学习多次不过，请跟我联系调整学习方法老师也会给你单独指导"
+      },
+      {
+        "role": "老师",
+        "name": "翻转英语Annie老师",
+        "timeOffset": "94",
+        "headPortrait": "https://alipub.binfenyingyu.com/file/jpg/meet/dde30cb0099af33b77ff11f943cd448a.jpg",
+        "contentType": "image",
+        "content": "https://alipub.binfenyingyu.com/file/jpg/meet/654e5ecd5783f988e236b93bdef27f85.jpg"
+      },
+      {
+        "role": "老师",
+        "name": "翻转英语Annie老师",
+        "timeOffset": "95",
+        "headPortrait": "https://alipub.binfenyingyu.com/file/jpg/meet/dde30cb0099af33b77ff11f943cd448a.jpg",
+        "contentType": "text",
+        "content": "8、学习福利"
+      },
+      {
+        "role": "老师",
+        "name": "翻转英语Annie老师",
+        "timeOffset": "97",
+        "headPortrait": "https://alipub.binfenyingyu.com/file/jpg/meet/dde30cb0099af33b77ff11f943cd448a.jpg",
+        "contentType": "audio",
+        "content": "https://alipub.binfenyingyu.com/file/m4a/meet/e079efb03aa000cef7da0d395d1759b3.m4a"
+      },
+      {
+        "role": "老师",
+        "name": "翻转英语Annie老师",
+        "timeOffset": "106",
+        "headPortrait": "https://alipub.binfenyingyu.com/file/jpg/meet/dde30cb0099af33b77ff11f943cd448a.jpg",
+        "contentType": "text",
+        "content": "【学习习惯养成计划】\n\n学习满20分钟就自动标记完成打卡，累计完成7天学习打卡的同学，私聊老师，即可获取翻转英语价值599元【学习礼包】"
+      },
+      {
+        "role": "老师",
+        "name": "翻转英语Annie老师",
+        "timeOffset": "108",
+        "headPortrait": "https://alipub.binfenyingyu.com/file/jpg/meet/dde30cb0099af33b77ff11f943cd448a.jpg",
+        "contentType": "text",
+        "content": "今天的班会内容就到这里了哦~✅ 认真看完全部班会内容，八点半群内纠音活动哦"
+      }
+    ],
+    "meetEndTime": 1606978436720
+  },
+  "message": "操作成功",
+  "sign": "XXXXXXXX",
+  "status": 1001,
+  "timestamp": 1607482492732
+}
