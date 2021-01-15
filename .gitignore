@@ -12,3 +12,4 @@ __pycache__
 # misc
 npm-debug.log
 .DS_Store
+.history/
