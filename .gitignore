@@ -13,3 +13,5 @@ __pycache__
 npm-debug.log
 .DS_Store
 .history/
+
+oss-deploy.js

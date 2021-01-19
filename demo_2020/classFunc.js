@@ -37,3 +37,19 @@ function formatZero(num, len) {
   return (Array(len).join(0) + num).slice(-len)
 }
 console.log(formatZero([1, 2], 4))
+
+function escape(str) {
+  str = str.replace(/&/g, '&amp;')
+  str = str.replace(/</g, '&lt;')
+  str = str.replace(/>/g, '&gt;')
+  str = str.replace(/"/g, '&quto;')
+  str = str.replace(/'/g, '&#39;')
+  str = str.replace(/`/g, '&#96;')
+  str = str.replace(/\//g, '&#x2F;')
+  return str
+}
+
+const xss = require('xss')
+let html = xss('<h1 id="title">XSS Demo</h1><script>alert("xss");</script>')
+// -> <h1>XSS Demo</h1>&lt;script&gt;alert("xss");&lt;/script&gt;
+console.log(html)
