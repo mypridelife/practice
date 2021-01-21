@@ -76,54 +76,73 @@ import { reactive, toRefs, watch, computed } from 'vue'
 export default {
   name: 'HelloWorld',
   setup() {
-    const state = reactive({
-      todolist: [
-        {
-          value: '看书',
-          finish: false,
-        },
-      ],
-      inputValue: '',
-      checkedAll: false,
-    })
-
-    watch(
-      () => state.checkedAll,
-      (newValue, oldValue) => {
-        if (newValue) {
-          state.todolist.forEach((item) => (item.finish = true))
-        } else {
-          state.todolist.forEach((item) => (item.finish = false))
-        }
-      }
-    )
-
-    function handleInput() {
-      const item = {
-        value: state.inputValue,
-        finish: false,
-      }
-      state.todolist.push(item)
-      state.inputValue = ''
-    }
-
-    const todoleft = computed(() => {
-      return state.todolist.reduce((total, cur) => {
-        return cur.finish ? total : total + 1
-      }, 0)
-    })
-
-    function handleClearCompleted() {
-      state.todolist = state.todolist.filter((item) => !item.finish)
-    }
+    const {
+      todolist,
+      inputValue,
+      checkedAll,
+      todoleft,
+      handleInput,
+      handleClearCompleted,
+    } = useTodo()
 
     return {
-      ...toRefs(state),
+      todolist,
+      inputValue,
+      checkedAll,
       todoleft,
       handleInput,
       handleClearCompleted,
     }
   },
+}
+function useTodo() {
+  const state = reactive({
+    todolist: [
+      {
+        value: '看书',
+        finish: false,
+      },
+    ],
+    inputValue: '',
+    checkedAll: false,
+  })
+
+  watch(
+    () => state.checkedAll,
+    (newValue, oldValue) => {
+      if (newValue) {
+        state.todolist.forEach((item) => (item.finish = true))
+      } else {
+        state.todolist.forEach((item) => (item.finish = false))
+      }
+    }
+  )
+
+  function handleInput() {
+    const item = {
+      value: state.inputValue,
+      finish: false,
+    }
+    state.todolist.push(item)
+    state.inputValue = ''
+  }
+
+  const todoleft = computed(() => {
+    return state.todolist.reduce((total, cur) => {
+      return cur.finish ? total : total + 1
+    }, 0)
+  })
+
+  function handleClearCompleted() {
+    state.todolist = state.todolist.filter((item) => !item.finish)
+  }
+
+  return {
+    ...toRefs(state),
+    todoleft,
+    handleInput,
+    handleClearCompleted,
+  }
 }
 </script>
 <style scoped></style>
