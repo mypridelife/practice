@@ -5,13 +5,13 @@ function Person(name) {
   this.name = name
 }
 Person.prototype.sayName = function () {
-  console.log("person say name", this.name)
+  console.log('person say name', this.name)
 }
 
-let person = new Person("Person")
-console.log("父类 person", person)
+let person = new Person('Person')
+console.log('父类 person', person)
 for (const key in person) {
-  console.log("父类 person key", key)
+  console.log('父类 person key', key)
 }
 
 /**
@@ -30,28 +30,27 @@ Teacher.prototype = Object.create(Person.prototype)
 //修正 constructor
 Teacher.prototype.constructor = Teacher
 Teacher.prototype.sayAge = function () {
-  console.log("teacher say age ", this.age)
+  console.log('teacher say age ', this.age)
 }
 
-let teacher = new Teacher("Teacher", "18")
-console.log("子类 teacher", teacher)
+let teacher = new Teacher('Teacher', '18')
+console.log('子类 teacher', teacher)
 for (const key in teacher) {
   if (teacher.hasOwnProperty(key)) {
-    console.log("子类 teacher key", key, teacher[key])
+    console.log('子类 teacher key', key, teacher[key])
   }
 }
 
 const person1 = {
-  name: "person1",
+  name: 'person1',
   sayName: function () {
-    console.log("person1 say name", this.name)
+    console.log('person1 say name', this.name)
   },
 }
 
 const me = Object.create(person1)
-// 废弃的写法
 // console.log("me", me.__proto__)
-console.log("me", Object.getPrototypeOf(me))
+console.log('me', Object.getPrototypeOf(me))
 
 /**
  * 区别：
@@ -68,13 +67,13 @@ class Animal {
     this.name = name
   }
   sayName() {
-    console.log("animal say name", this.name)
+    console.log('animal say name', this.name)
   }
 }
-let animal = new Animal("Animal")
-console.log("父类 animal", animal)
+let animal = new Animal('Animal')
+console.log('父类 animal', animal)
 for (const key in animal) {
-  console.log("父类 animal key", key)
+  console.log('父类 animal key', key)
 }
 
 //继承
@@ -86,14 +85,14 @@ class Rabbit extends Animal {
 
   sayAge() {
     super.sayName() // 调用父类的 stop
-    console.log("teacher say age", this.age)
+    console.log('teacher say age', this.age)
   }
 }
 
-let rabbit = new Rabbit("Rabbit", "18")
-console.log("子类 rabbit", rabbit)
+let rabbit = new Rabbit('Rabbit', '18')
+console.log('子类 rabbit', rabbit)
 for (const key in rabbit) {
-  console.log("子类 rabbit key", key)
+  console.log('子类 rabbit key', key)
 }
 // node 运行结果
 // 父类 person Person { name: 'Person' }

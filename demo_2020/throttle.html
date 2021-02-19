@@ -36,6 +36,30 @@
         console.log('===scroll===')
       }
       window.onscroll = debounce(onScroll, 1000)
+
+
+
+
+      function scroll (){
+          console.log('debounce');
+      } 
+      let debonuceD = debounce1(scroll,100)
+
+      function debounce1(func,wait){
+        let timer = null 
+        return (...args)=>{
+        if (timer) {
+          clearTimeout(timer);
+        }
+         timer = setTimeout(() => {
+            func.apply(this,args)
+          }, wait);
+        }
+      }
     </script>
   </body>
 </html>
+
+
+
+
