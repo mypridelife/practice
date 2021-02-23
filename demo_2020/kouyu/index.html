@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>腾讯云智聆口语评测</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vant@2.12/lib/index.css" />
+</head>
+
+<body>
+    <div id="app">
+        <div id="main-body">
+            <van-cell-group style="margin-bottom:20px;">
+                <van-field type="text" v-model="word" />
+            </van-cell-group>
+            <van-button @click="initRecorder">开始录音</van-button>
+            <van-button @click="stop">结束录音</van-button>
+            <!-- 显示当前状态 -->
+            <span>{{status}}</span>
+            <!-- 显示测评结果 -->
+            <div id="result">{{result}}</div>
+        </div>
+    </div>
+
+    <script src="https://aiedu.qcloud.com/soe/TencentSOE-0.1.4.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vant@2.12/lib/vant.min.js"></script>
+
+    <script>
+        new Vue({
+            //边界管理
+            el: '#app',
+            //data 存放数据
+            data: {
+                word: 'this is a demo about test',
+                status: '',
+                result: '',
+                recorder: null,
+            },
+            mounted() { },
+            methods: {
+                initRecorder() {
+                    const that = this
+                    that.recorder = new TencentSOE({
+                        SecretId: 'xxx',
+                        SecretKey: 'xxx',
+                        EvalMode: 1,
+                        success() {
+                            that.start()
+                        },
+                        error(err) {
+                            console.log(err)
+                        },
+                    })
+                    console.log('recorder', this.recorder)
+                },
+                start() {
+                    const that = this
+                    that.result = ''
+                    that.status = '开始录音'
+                    that.recorder.start({
+                        RefText: that.word,
+                        error: function (err) {
+                            console.log(err)
+                        },
+                        complete: function () {
+                            console.log('录音超过1分钟未停止触发此回调')
+                        },
+                        success: function (res) {
+                            console.log("start success", res)
+                            that.status = '录音转码中...'
+                        },
+                        error(err) {
+                            console.log('err', err)
+                        },
+                    })
+                },
+                stop() {
+                    const that = this
+                    that.recorder.stop({
+                        success(res) {
+                            console.log('res', res);
+
+                            that.status = '已结束'
+                            that.createAudioLinkFromBlob(res, 'wav')
+                        },
+                        error(err) {
+                            console.log('err', err)
+                        },
+                    })
+                },
+
+                // 创建音频、下载链接
+                createAudioLinkFromBlob(res, type) {
+                    let audio = document.createElement('audio')
+                    let alink = document.createElement('a')
+                    let score = document.createElement('span')
+                    let blobUrl = URL.createObjectURL(res.blob)
+                    alink.download = 'demo.' + type
+                    alink.textContent = 'demo.' + type
+                    alink.href = blobUrl
+                    audio.src = blobUrl
+                    audio.setAttribute('controls', '')
+                    score.textContent = '分数：' + res.PronAccuracy
+
+                    let container = document.createElement('div')
+                    container.appendChild(audio)
+                    container.appendChild(alink)
+                    container.appendChild(score)
+                    const result = document.querySelector('#result')
+                    result.appendChild(container)
+                },
+            },
+        })
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            padding: 20px
+        }
+    </style>
+</body>
+
+</html>
