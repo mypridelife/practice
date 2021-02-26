@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    「加颜色」
+    <p>不加颜色</p>
+    <p>「嘿嘿」</p>
+    嘻嘻 哪一个
+
+    <div>「教我」</div>
+    做事？
+    <script>
+      //   let rootText = document.body.innerHTML
+      //   const re = /「[\S]+」/g
+      //   console.log('rootText', rootText)
+
+      //   const result = rootText.match(re)
+      //   result.map(item => {
+      //     const final = item.split('').splice(1, item.split('').length - 2)
+
+      //     console.log('final', final)
+      //     return final
+      //   })
+      //   console.log('result', result)
+      document.body.innerHTML = document.body.innerHTML
+        .replace(/「/g, "<span class='red'>")
+        .replace(/」/g, '</span>')
+    </script>
+    <style>
+      .red {
+        color: red;
+      }
+    </style>
+  </body>
+</html>
