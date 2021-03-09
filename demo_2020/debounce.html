@@ -12,8 +12,8 @@
 
     <script>
 
-        function resizeFunc() {
-            console.log('lalala');
+        function resizeFunc(e) {
+            console.log('lalala', e);
         }
 
         function debounce(func, wait) {
@@ -43,8 +43,8 @@
 
         const throttleFunc = throttle(resizeFunc, 300)
 
-        // window.onresize = debounceFunc
-        window.onresize = throttleFunc
+        window.onresize = debounceFunc
+        // window.onresize = throttleFunc
 
     </script>
 </body>
