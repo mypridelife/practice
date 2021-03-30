@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "vue-numeric-input": "^1.0.6"
+  }
+}
