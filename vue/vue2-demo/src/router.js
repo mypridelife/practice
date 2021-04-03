@@ -41,6 +41,11 @@ const router = new Router({
       path: '/functional',
       name: 'functional',
       component: () => import('@/views/functional/index')
+    },
+    {
+      path: '/sui/button',
+      name: 'suibutton',
+      component: () => import('@/views/suibutton/index')
     }
   ]
 })
